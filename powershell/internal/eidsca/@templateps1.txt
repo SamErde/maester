@@ -1,4 +1,11 @@
-﻿<#
+﻿<#PSScriptInfo
+.DESCRIPTION Maester Test:
+.Author Maester Team
+.VERSION 0.0.1
+.TAGS <status> <category> <subcategory>
+#>
+
+<#
 .SYNOPSIS
     Checks if %ControlName% - %DisplayName% is set to %RecommendedValue%
 
