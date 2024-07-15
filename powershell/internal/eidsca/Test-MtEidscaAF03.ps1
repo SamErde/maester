@@ -1,3 +1,10 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtEidscaAF03.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, eidsca
+#>
+
 <#
 .SYNOPSIS
     Checks if Authentication Method - FIDO2 security key - Enforce attestation is set to 'true'

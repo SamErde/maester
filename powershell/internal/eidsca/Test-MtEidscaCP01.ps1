@@ -1,3 +1,10 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtEidscaCP01.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, eidsca
+#>
+
 <#
 .SYNOPSIS
     Checks if Default Settings - Consent Policy Settings - Group owner consent for apps accessing data is set to 'False'

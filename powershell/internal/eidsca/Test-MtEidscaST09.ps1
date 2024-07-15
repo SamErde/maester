@@ -1,3 +1,10 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtEidscaST09.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, eidsca
+#>
+
 <#
 .SYNOPSIS
     Checks if Default Settings - Classification and M365 Groups - M365 groups - Allow Guests to have access to groups content is set to 'True'
