@@ -1,4 +1,11 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: ConvertFrom-MailAuthenticationRecordSpf.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, exchange
+#>
+
+<#
 .SYNOPSIS
     Returns a structured RFC compliant object for the supplied SPF record
 

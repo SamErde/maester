@@ -1,4 +1,11 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Get-MailAuthenticationRecord.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, exchange
+#>
+
+<#
 .SYNOPSIS
     Obtains and converts the mail authentication records of a domain
 

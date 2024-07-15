@@ -1,4 +1,11 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: ConvertFrom-MailAuthenticationRecordDkim.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, exchange
+#>
+
+<#
 .SYNOPSIS
     Returns structured RFC compliant object from DKIM record
 

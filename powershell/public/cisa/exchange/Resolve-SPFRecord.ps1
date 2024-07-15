@@ -1,3 +1,10 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Resolve-SPFRecord.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, exchange
+#>
+
 <#
 .SYNOPSIS
     Returns a list of all IP addresses from an SPF record

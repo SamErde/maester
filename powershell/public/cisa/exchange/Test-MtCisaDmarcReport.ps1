@@ -1,4 +1,11 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCisaDmarcReport.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, exchange
+#>
+
+<#
 .SYNOPSIS
     Checks state of DMARC records for all exo domains
 

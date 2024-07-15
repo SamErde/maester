@@ -1,4 +1,11 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCisaCrossTenantInboundDefault.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, Entra
+#>
+
+<#
 .SYNOPSIS
     Checks cross-tenant default inbound access configuration
 
