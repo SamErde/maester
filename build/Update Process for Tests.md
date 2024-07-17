@@ -105,7 +105,7 @@ Or potentially as JSON, if that gives the project any added flexibility:
 The concept below uses PSScriptInfo data to store version, status, and other details directly in each test's PS1 file. This can be templatized and then updated either by a developer or by GitHub actions after changes are made. During the update process, the PSScriptInfo for each test can be compared to the details of the latest tests available online.
 
 > [!NOTE]
-> As an aside, each test /could/ then be published independently to the PowerShell Gallery as a function, but I do not believe people would like to see dozens or hundreds of individual scripts installed in this manner.
+> As an aside, each test *could* then be published independently to the PowerShell Gallery as a function, but I do not believe people would like to see dozens or hundreds of individual scripts installed in this manner.
 
 #### Advantages (Option 2)
 
@@ -148,6 +148,6 @@ function Test-MtCisaActivationNotification {
 
 ```
 
-For a complete example, see the test scripts in this branch of the repository. The [build\Add-PSScriptInfo.ps1](build\Add-PSScriptInfo.ps1) script was used to generatively add PSScriptInfo to existing tests.
+For a complete example, see the test scripts in this branch of the repository. The [build\Add-PSScriptInfo.ps1]([build\Add-PSScriptInfo.ps1](https://github.com/SamErde/maester/blob/Maester-Test-Versioning/build/Add-PSScriptInfo.ps1)) script was used to get started and add PSScriptInfo to existing tests.
 
 ...in progress...
