@@ -5,7 +5,7 @@ Here are several concepts for updating Maester tests more precisely. For an upda
 Updating from the module's local installation location will require the module itself to be updated in order to update the Maester tests. Updating from GitHub or the PowerShell Gallery will allow faster updates of Maester tests without needing to update the entire module.
 
 ```mermaid
-flowchart TB
+flowchart LR
   A(["Update-MaesterTests"])
   B{"Update Method<br><i class="fa-solid fa-laptop-code"></i> &nbsp; &nbsp; <i class="fa-solid fa-terminal"></i> &nbsp; &nbsp; <i class="fa-brands fa-github"></i>"}
   A --> B
