@@ -150,4 +150,11 @@ function Test-MtCisaActivationNotification {
 
 For a complete example, see the test scripts in this branch of the repository. The [build\Add-PSScriptInfo.ps1]([build\Add-PSScriptInfo.ps1](https://github.com/SamErde/maester/blob/Maester-Test-Versioning/build/Add-PSScriptInfo.ps1)) script was used to get started and add PSScriptInfo to existing tests.
 
-...in progress...
+**...in progress...**
+
+> [!Info]
+> The next step would be to write a function that compares this PSScriptInfo in the user's [maester-tests] folder to the PSScriptInfo in either:
+>
+> - the module's local installation (PSScriptRoot) path
+> - the matching script in the GitHub repository
+> - possibly something published to the PowerShell Gallery (?)
