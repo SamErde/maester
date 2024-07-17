@@ -32,7 +32,19 @@ We will need to track the version of tests in order to know when to update them.
 
 ### Option 1: Track tests in a single file
 
-Test versions and status could be tracked in a single file in the module. This approach could use a list of custom objects in PowerShell:
+Test versions and status could be tracked in a single file in the module. This approach could use a list of custom objects in PowerShell or in JSON.
+
+#### Benefits (Option 1: Track tests in a single file)
+
+- One place to track everything
+- The data can be stored with the installed module and referenced by update functions
+
+#### Disadvantages (Option 1: Track tests in a single file)
+
+- Could result in test updates still being tied to module updates
+- May become error prone and unsustainable to update a central file with every test version change
+
+#### Examples
 
 ```powershell
 [System.Collections.Generic.List[PSCustomObject]]$TestVersions = @()
@@ -85,4 +97,45 @@ Or potentially as JSON, if that is preferred by some:
     }
   ]
 }
+```
+
+### Option 2: Add version and status metadata in every test
+
+#### Benefits (Option 2: Add version and status metadata in every test)
+
+- Every test can be versioned and updated or retired independently
+- An update process for the tests can be separated from updates for the module
+- Updates of tests could become very fast if only updating changed/removed tests
+- A history of test versions and lifecycle might become easier for users to track
+- Additional metadata for each test could become easier to track
+
+#### Disadvantages (Option 2: Add version and status metadata in every test)
+
+- Adds an extra step to the creation of every test
+- Test files become slightly larger
+
+#### Examples (Option 2)
+
+Add the test's version and status using PSScriptInfo tags.
+
+```powershell
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCisaActivationNotification.ps1
+.VERSION 0.0.1
+.AUTHOR Maester Team
+.TAGS Active, CISA, Entra
+#>
+
+<#
+.SYNOPSIS
+    Checks for notification on role activation
+.DESCRIPTION
+    User activation of the Global Administrator role SHALL trigger an alert.
+    User activation of other highly privileged roles SHOULD trigger an alert.
+#>
+
+function Test-MtCisaActivationNotification {
+  # [... shortened for brevity ...] #
+}
+
 ```
