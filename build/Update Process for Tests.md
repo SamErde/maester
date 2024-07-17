@@ -1,8 +1,9 @@
 # Update Process for Tests
 
-Here are several concepts for updating Maester tests more precisely. For an update source, they use either GitHub, the PowerShell Gallery, or the module's local install folder as the source for updates.
+Here are several concepts for updating Maester tests more frequently and precisely. For an update source, they might use either GitHub, the PowerShell Gallery, or the module's local install folder as the source for updates.
 
-Updating from the module's local installation location will require the module itself to be updated in order to update the Maester tests. Updating from GitHub or the PowerShell Gallery will allow faster updates of Maester tests without needing to update the entire module.
+- Updating from the module's local installation location will require the module itself to be updated in order to update the Maester tests.
+- Updating from GitHub or the PowerShell Gallery will allow faster updates of Maester tests without needing to update the entire module.
 
 ```mermaid
 flowchart LR
@@ -26,13 +27,13 @@ flowchart LR
   style -Local fill:#C8E6C9
 ```
 
-## Versioning the Tests
+## Versioning the Maester Tests Files
 
-We will track the version of each test in order to know when to update them. We will also track the lifecycle status of each tests in order to know when to disable or remove them. (This approach could potentially be applied to an entire bundle of tests, such as the CISA or EIDSCA tests.)
+We will track the version of each test in order to know when to update each one. We might also track the lifecycle status of each tests in order to know when to disable or remove them. (This approach could potentially be applied to an entire bundle of tests, such as the CISA or EIDSCA tests.)
 
 ### Option 1: Track tests in a central location
 
-Test versions and status could be tracked in a single location in the module. This approach could use a list of custom objects in PowerShell or store the details as JSON.
+Test versions and status could be tracked in a single location in the module. This approach could use a list of custom objects in a PowerShell function or store the details as JSON.
 
 #### Advantages (Option 1)
 
@@ -100,7 +101,7 @@ Or potentially as JSON, if that gives the project any added flexibility:
 }
 ```
 
-### Option 2: Add version and status metadata in every test
+### Option 2: Add version and status metadata in every individual test file
 
 The concept below uses PSScriptInfo data to store version, status, and other details directly in each test's PS1 file. This can be templatized and then updated either by a developer or by GitHub actions after changes are made. During the update process, the PSScriptInfo for each test can be compared to the details of the latest tests available online.
 
@@ -149,6 +150,9 @@ function Test-MtCisaActivationNotification {
 ```
 
 For a complete example, see the test scripts in this branch of the repository. The [build\Add-PSScriptInfo.ps1]([build\Add-PSScriptInfo.ps1](https://github.com/SamErde/maester/blob/Maester-Test-Versioning/build/Add-PSScriptInfo.ps1)) script was used to get started and add PSScriptInfo to existing tests.
+
+> [!NOTE]
+> The *-PSScriptFileInfo cmdlets require script file info to include Version, GUID, Description, and Author properties. These are required for a valid file to be published to the PowerShell Gallery. We could automate the creation of GUIDs, or we can easily avoid that potentially unnecessary step by adding a function that directly queries PSScriptInfo without using the **Microsoft.PowerShell.PSResourceGet** module. (Fewer dependencies on the endpoint are always good as well.) The official module source uses a compiled function, but I also found an example script function written by @hanpq at <https://github.com/hanpq/PSScriptInfo/blob/main/source/Private/Get-PSScriptInfoLegacy.ps1>.
 
 **...in progress...**
 
