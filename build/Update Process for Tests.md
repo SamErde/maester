@@ -1,5 +1,9 @@
 # Update Process for Tests
 
+Can we find a good way to efficiently update specific tests using a process separate from updating the whole module? Can we find a way to gracefully deprecate and remove tests if needed in the future?
+
+**TLDR:** What if we use PSScriptInfo in each of the Maester test files to track their version and status? Would Maester also benefit from splitting tests into their own repository?
+
 Here are several concepts for updating Maester tests more frequently and precisely. For an update source, they might use either GitHub, the PowerShell Gallery, or the module's local install folder as the source for updates.
 
 - Updating from the module's local installation location will require the module itself to be updated in order to update the Maester tests.
@@ -105,6 +109,8 @@ Or potentially as JSON, if that gives the project any added flexibility:
 
 The concept below uses PSScriptInfo data to store version, status, and other details directly in each test's PS1 file. This can be templatized and then updated either by a developer or by GitHub actions after changes are made. During the update process, the PSScriptInfo for each test can be compared to the details of the latest tests available online.
 
+In short, if the .VERSION data for a given test's PSScriptInfo in your `maester-tests` folder is older than the test's PSScriptInfo.VERSION in the repository, then the `Update-MaesterTests` function could update that specific function. If the test file in the repository has 'Deprecated' or 'Removed' in its PSScriptInfo.TAGS, then the update function can perform relevant actions on the management endpoint where the module is being used.
+
 > [!NOTE]
 > As an aside, each test *could* then be published independently to the PowerShell Gallery as a function, but I do not believe people would like to see dozens or hundreds of individual scripts installed in this manner.
 
@@ -124,7 +130,7 @@ The concept below uses PSScriptInfo data to store version, status, and other det
 #### Examples (Option 2)
 
 Add the test's status, version, and even tags using PSScriptInfo tags.
-The related markdown documentation file can also be referenced via .LINKS or .PrivateData.
+The related markdown documentation file can also be paired via .PrivateData.
 
 ```powershell
 <#PSScriptInfo
@@ -149,12 +155,12 @@ function Test-MtCisaActivationNotification {
 
 ```
 
-For a complete example, see the test scripts in this branch of the repository. The [build\Add-PSScriptInfo.ps1]([build\Add-PSScriptInfo.ps1](https://github.com/SamErde/maester/blob/Maester-Test-Versioning/build/Add-PSScriptInfo.ps1)) script was used to get started and add PSScriptInfo to existing tests.
+For a complete example, see the test scripts in my ['Maester-Test-Versioning' branch](https://github.com/SamErde/maester/tree/Maester-Test-Versioning). The [build\Add-PSScriptInfo.ps1](https://github.com/SamErde/maester/blob/Maester-Test-Versioning/build/Add-PSScriptInfo.ps1) script was used to get started and add PSScriptInfo to existing tests.
 
 > [!NOTE]
-> The *-PSScriptFileInfo cmdlets require script file info to include Version, GUID, Description, and Author properties. These are required for a valid file to be published to the PowerShell Gallery. We could automate the creation of GUIDs, or we can easily avoid that potentially unnecessary step by adding a function that directly queries PSScriptInfo without using the **Microsoft.PowerShell.PSResourceGet** module. (Fewer dependencies on the endpoint are always good as well.) The official module source uses a compiled function, but I also found an example script function written by @hanpq at <https://github.com/hanpq/PSScriptInfo/blob/main/source/Private/Get-PSScriptInfoLegacy.ps1>.
+> The *-PSScriptFileInfo cmdlets require script file info to include Version, GUID, Description, and Author properties. These are required for a valid file to be published to the PowerShell Gallery. We could automate the creation of GUIDs, or we can easily avoid that potentially unnecessary step by adding a function that directly queries PSScriptInfo without using the **Microsoft.PowerShell.PSResourceGet** module. (Fewer dependencies on the endpoint are always good as well.) The official module source uses a compiled function, but I also found an example script function written by [Hannes Palmquist](https://github.com/hanpq) at <https://github.com/hanpq/PSScriptInfo/blob/main/source/Private/Get-PSScriptInfoLegacy.ps1>.
 
-**...in progress...**
+**POC functions to read and collate version info is still in progress...**
 
 > [!NOTE]
 > The next step would be to write a function that compares this PSScriptInfo in the user's [maester-tests] folder to the PSScriptInfo in either:
