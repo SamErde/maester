@@ -158,3 +158,25 @@ For a complete example, see the test scripts in this branch of the repository. T
 > - the module's local installation (PSScriptRoot) path
 > - the matching script in the GitHub repository
 > - possibly something published to the PowerShell Gallery (?)
+
+### Option 3: Combine options 1 and 2
+
+The third, and possibly best option may be to use PSScriptInfo to track version and status in each individual file while also automating the creation of a single centralized list.
+
+In the repository, a GitHub action could easily pull information about every script and write that to a file. Locally, a function could easily pull name/version/status information from each script in [maester-tests] into a list and then compare that list to the latest list from the repository.
+
+#### Advantages (Option 3)
+
+- Avoid having to send web requests for every version check of every individual file
+- Maintain lifecycle information in individual test files and one central file automatically
+
+#### Disadvantages (Option 3)
+
+- Are we going to end up writing to AppData? 🫠
+- ...?
+
+## Additional Conclusions
+
+Working through this thought exercise has stimulated another thought: it may also be helpful to create a new, separate repository for 'maester-tests' in the 'maester' organization.
+
+This may make it easier to version tests, build and version bundles of tests for specific test sources, and check/update tests from clients.
