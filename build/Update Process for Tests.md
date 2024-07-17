@@ -29,7 +29,7 @@ flowchart LR
 
 ## Versioning the Maester Tests Files
 
-We will track the version of each test in order to know when to update each one. We might also track the lifecycle status of each tests in order to know when to disable or remove them. (This approach could potentially be applied to an entire bundle of tests, such as the CISA or EIDSCA tests.)
+Tracking the version of each test will allow us to know when to update each one. (This approach could potentially be applied to an entire bundle of tests, such as the CISA or EIDSCA tests.) We can also track the lifecycle status of each test to know when to disable or remove them.
 
 ### Option 1: Track tests in a central location
 
