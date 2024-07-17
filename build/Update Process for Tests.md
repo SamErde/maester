@@ -2,7 +2,7 @@
 
 Here are several concepts for updating Maester tests more precisely. For an update source, they use either GitHub, the PowerShell Gallery, or the module's local install folder as the source for updates.
 
-Updating from the module's installation location will require the module itself to be updated in order to update the Maester tests. Installing from GitHub or the PowerShell Gallery will allow faster updates of Maester tests without needing to update the entire module.
+Updating from the module's local installation location will require the module itself to be updated in order to update the Maester tests. Updating from GitHub or the PowerShell Gallery will allow faster updates of Maester tests without needing to update the entire module.
 
 ```mermaid
 flowchart TB
@@ -28,25 +28,26 @@ flowchart TB
 
 ## Versioning the Tests
 
-We will need to track the version of tests in order to know when to update them. We will also track the lifecycle status of tests in order to know when to disable or remove them.
+We will track the version of each test in order to know when to update them. We will also track the lifecycle status of each tests in order to know when to disable or remove them. (This approach could potentially be applied to an entire bundle of tests, such as the CISA or EIDSCA tests.)
 
-### Option 1: Track tests in a single file
+### Option 1: Track tests in a central location
 
-Test versions and status could be tracked in a single file in the module. This approach could use a list of custom objects in PowerShell or in JSON.
+Test versions and status could be tracked in a single location in the module. This approach could use a list of custom objects in PowerShell or store the details as JSON.
 
-#### Benefits (Option 1: Track tests in a single file)
+#### Advantages (Option 1)
 
 - One place to track everything
 - The data can be stored with the installed module and referenced by update functions
 
-#### Disadvantages (Option 1: Track tests in a single file)
+#### Disadvantages (Option 1)
 
 - Could result in test updates still being tied to module updates
 - May become error prone and unsustainable to update a central file with every test version change
 
-#### Examples
+#### Examples (Option 1)
 
 ```powershell
+# Create a list of custom objects describing the version and status of each test
 [System.Collections.Generic.List[PSCustomObject]]$TestVersions = @()
 $TestVersions.Add( [PSCustomObject]@{
   Name = "TestName 1"
@@ -70,7 +71,7 @@ $TestVersions.Add( [PSCustomObject]@{
 } )
 ```
 
-Or potentially as JSON, if that is preferred by some:
+Or potentially as JSON, if that gives the project any added flexibility:
 
 ```json
 {
@@ -101,7 +102,12 @@ Or potentially as JSON, if that is preferred by some:
 
 ### Option 2: Add version and status metadata in every test
 
-#### Benefits (Option 2: Add version and status metadata in every test)
+The concept below uses PSScriptInfo data to store version, status, and other details directly in each test's PS1 file. This can be templatized and then updated either by a developer or by GitHub actions after changes are made. During the update process, the PSScriptInfo for each test can be compared to the details of the latest tests available online.
+
+> [!NOTE]
+> As an aside, each test /could/ then be published independently to the PowerShell Gallery as a function, but I do not believe people would like to see dozens or hundreds of individual scripts installed in this manner.
+
+#### Advantages (Option 2)
 
 - Every test can be versioned and updated or retired independently
 - An update process for the tests can be separated from updates for the module
@@ -109,14 +115,15 @@ Or potentially as JSON, if that is preferred by some:
 - A history of test versions and lifecycle might become easier for users to track
 - Additional metadata for each test could become easier to track
 
-#### Disadvantages (Option 2: Add version and status metadata in every test)
+#### Disadvantages (Option 2)
 
 - Adds an extra step to the creation of every test
 - Test files become slightly larger
 
 #### Examples (Option 2)
 
-Add the test's version and status using PSScriptInfo tags.
+Add the test's status, version, and even tags using PSScriptInfo tags.
+The related markdown documentation file can also be referenced via .LINKS or .PrivateData.
 
 ```powershell
 <#PSScriptInfo
@@ -124,6 +131,7 @@ Add the test's version and status using PSScriptInfo tags.
 .VERSION 0.0.1
 .AUTHOR Maester Team
 .TAGS Active, CISA, Entra
+.PRIVATEDATA @{ Markdown='Test-MtCisaActivationNotification.md'; Reference='https://domain.com/moreinfo' }
 #>
 
 <#
@@ -139,3 +147,7 @@ function Test-MtCisaActivationNotification {
 }
 
 ```
+
+For a complete example, see the test scripts in this branch of the repository. The [build\Add-PSScriptInfo.ps1](build\Add-PSScriptInfo.ps1) script was used to generatively add PSScriptInfo to existing tests.
+
+...in progress...
