@@ -152,7 +152,7 @@ For a complete example, see the test scripts in this branch of the repository. T
 
 **...in progress...**
 
-> [!Info]
+> [!NOTE]
 > The next step would be to write a function that compares this PSScriptInfo in the user's [maester-tests] folder to the PSScriptInfo in either:
 >
 > - the module's local installation (PSScriptRoot) path
