@@ -13,7 +13,7 @@ foreach ($file in $TestFiles) {
         default { $Category = 'Core' }
     }
     $Status = 'Active'
-    $Tags = "`'$Status`', `'$Category`'"
+    $Tags = "$Status, $Category"
 
     $Info = @"
 <#PSScriptInfo
@@ -22,7 +22,7 @@ foreach ($file in $TestFiles) {
 .AUTHOR The Maester Team
 .COMPANYNAME The Maester Team
 .COPYRIGHT Maester Team. All rights reserved.
-.VERSION '0.0.1'
+.VERSION 0.0.1
 .GUID $Guid
 .ICONURI https://maester.dev/img/logo.svg
 #>
