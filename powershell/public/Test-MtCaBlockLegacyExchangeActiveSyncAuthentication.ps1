@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaBlockLegacyExchangeActiveSyncAuthentication.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID eb446cdf-c3cd-4ec0-8e20-f169605a386e
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy that blocks legacy authentication for Exchange Active Sync authentication.
@@ -11,9 +22,11 @@
 
  .Example
   Test-MtCaBlockLegacyExchangeActiveSyncAuthentication
-#>
 
-Function Test-MtCaBlockLegacyExchangeActiveSyncAuthentication {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaBlockLegacyExchangeActiveSyncAuthentication
+#>
+function Test-MtCaBlockLegacyExchangeActiveSyncAuthentication {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

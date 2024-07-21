@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtEidscaAF02.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, eidsca
+.GUID 67795d2a-1cc8-4203-a71e-5c1a38b15d32
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#

@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaContactSharing.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID d8deda34-efb8-4aef-9273-0f5804a8355c
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of sharing policies
 
 .DESCRIPTION
-
     Contact folders SHALL NOT be shared with all domains.
 
 .EXAMPLE
     Test-MtCisaContactSharing
 
     Returns true if no sharing policies allow uncontrolled contact sharing.
-#>
 
-Function Test-MtCisaContactSharing {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaContactSharing
+#>
+function Test-MtCisaContactSharing {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

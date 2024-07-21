@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaSecureSecurityInfoRegistration.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 6c976acb-1779-489c-bdf3-4b09f7d00ef3
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy securing security info registration.
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaSecureSecurityInfoRegistration
-#>
 
-Function Test-MtCaSecureSecurityInfoRegistration {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaSecureSecurityInfoRegistration
+#>
+function Test-MtCaSecureSecurityInfoRegistration {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

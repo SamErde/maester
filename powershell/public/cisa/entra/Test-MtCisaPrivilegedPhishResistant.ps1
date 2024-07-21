@@ -1,24 +1,30 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaPrivilegedPhishResistant.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 175a76e1-e1db-4cde-9226-b8ef5a3b3399
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
 .SYNOPSIS
     Checks if Conditional Access Policy requiring phishing resistant authentication methods for privileged roles is enabled
-.DESCRIPTION
 
+.DESCRIPTION
     Phishing-resistant MFA SHALL be required for highly privileged roles.
 
 .EXAMPLE
     Test-MtCisaPhishResistant
 
     Returns true if at least one policy requires phishing resistant methods for the specific roles
-#>
 
-Function Test-MtCisaPrivilegedPhishResistant {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaPrivilegedPhishResistant
+#>
+function Test-MtCisaPrivilegedPhishResistant {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

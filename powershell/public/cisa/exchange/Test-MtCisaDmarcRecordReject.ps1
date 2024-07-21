@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaDmarcRecordReject.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID a36bb686-b0b2-4fd2-ba0e-3cfc7c74c1aa
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of DMARC records for all exo domains
 
 .DESCRIPTION
-
     The DMARC message rejection option SHALL be p=reject.
 
 .EXAMPLE
     Test-MtCisaDmarcRecordExist
 
     Returns true if DMARC record with reject policy exists for every domain
-#>
 
-Function Test-MtCisaDmarcRecordReject {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaDmarcRecordReject
+#>
+function Test-MtCisaDmarcRecordReject {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

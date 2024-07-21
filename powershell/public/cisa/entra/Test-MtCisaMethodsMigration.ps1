@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaMethodsMigration.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID a59a7411-1b36-42cd-8849-6adc7028ee2d
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if migration to Authentication Methods is complete
 
 .DESCRIPTION
-
     The Authentication Methods Manage Migration feature SHALL be set to Migration Complete.
 
 .EXAMPLE
     Test-MtCisaMethodsMigration
 
     Returns true if policyMigrationState is migrationComplete
-#>
 
-Function Test-MtCisaMethodsMigration {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaMethodsMigration
+#>
+function Test-MtCisaMethodsMigration {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

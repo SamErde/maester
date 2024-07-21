@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaDmarcRecordExist.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID f8309348-5507-4ef9-9a90-cecf9e31aba0
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of DMARC records for all exo second level domains
 
 .DESCRIPTION
-
     A DMARC policy SHALL be published for every second-level domain.
 
 .EXAMPLE
     Test-MtCisaDmarcRecordExist
 
     Returns true if DMARC record exists for all 2LD
-#>
 
-Function Test-MtCisaDmarcRecordExist {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaDmarcRecordExist
+#>
+function Test-MtCisaDmarcRecordExist {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

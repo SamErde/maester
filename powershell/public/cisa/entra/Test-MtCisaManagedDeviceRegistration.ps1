@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaManagedDeviceRegistration.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID d681564f-b2d3-4fd0-8c0b-c2f8957beff0
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,19 +14,21 @@
     Checks if a policy is enabled requiring a managed device for registration
 
 .DESCRIPTION
-
     Managed Devices SHOULD be required to register MFA.
 
 .EXAMPLE
     Test-MtCisaManagedDeviceRegistration
 
     Returns true if at least one policy requires MFA for registration
-#>
 
-Function Test-MtCisaManagedDeviceRegistration {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaManagedDeviceRegistration
+#>
+function Test-MtCisaManagedDeviceRegistration {
     [CmdletBinding()]
     [OutputType([bool])]
     param(
+        # Do not check if Hybrid Joined devices are accepted.
         [switch]$SkipHybridJoinCheck
     )
 

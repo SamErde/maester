@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaPhishResistant.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 20a01f5d-ad44-467b-96c3-0fe59d79771d
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if Conditional Access Policy using Phishing-Resistant Authentication Strengths is enabled
 
 .DESCRIPTION
-
     Phishing-resistant MFA SHALL be enforced for all users
 
 .EXAMPLE
     Test-MtCisaPhishResistant
 
     Returns true if at least one policy is set to use the built-in phishing resistant authentication strengths
-#>
 
-Function Test-MtCisaPhishResistant {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaPhishResistant
+#>
+function Test-MtCisaPhishResistant {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

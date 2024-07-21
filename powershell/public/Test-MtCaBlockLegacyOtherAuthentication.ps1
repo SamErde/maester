@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaBlockLegacyOtherAuthentication.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 3138a963-dbf4-46ab-ade5-813e771f60fd
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy that blocks legacy authentication.
@@ -11,9 +22,11 @@
 
  .Example
   Test-MtCaBlockLegacyOtherAuthentication
-#>
 
-Function Test-MtCaBlockLegacyOtherAuthentication {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaBlockLegacyOtherAuthentication
+#>
+function Test-MtCaBlockLegacyOtherAuthentication {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

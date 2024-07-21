@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAutoExternalForwarding.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID e0085d6f-977e-4e4c-b1e1-8e653bbcf637
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks ...
 
 .DESCRIPTION
-
     Automatic forwarding to external domains SHALL be disabled.
 
 .EXAMPLE
     Test-MtCisaAutoExternalForwarding
 
     Returns true if no domain is enabled for auto forwarding
-#>
 
-Function Test-MtCisaAutoExternalForwarding {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAutoExternalForwarding
+#>
+function Test-MtCisaAutoExternalForwarding {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAuthenticatorContext.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 7b3cac68-c90b-4144-b6d5-70523e6c2790
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if the Authentication Methods policy for Microsoft Authenticator is set appropriately
 
 .DESCRIPTION
-
     If phishing-resistant MFA has not been enforced and Microsoft Authenticator is enabled, it SHALL be configured to show login context information
 
 .EXAMPLE
     Test-MtCisaAuthenticatorContext
 
     Returns true if the Authentication Methods policy for Microsoft Authenticator is set appropriately
-#>
 
-Function Test-MtCisaAuthenticatorContext {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAuthenticatorContext
+#>
+function Test-MtCisaAuthenticatorContext {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

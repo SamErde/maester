@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaMfaForAllUsers.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID ab8b176c-c9d2-415a-86fa-0f341b96109f
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy requiring multifactor authentication for all users
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaMfaForAllUsers
-#>
 
-Function Test-MtCaMfaForAllUsers {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaMfaForAllUsers
+#>
+function Test-MtCaMfaForAllUsers {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'AllUsers is a well known term for conditional access policies.')]
     [CmdletBinding()]
     [OutputType([bool])]

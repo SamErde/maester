@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaSmtpAuthentication.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID 40961fa8-a050-4447-bd2d-bb38e0ed814a
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -16,9 +20,11 @@
     Test-MtCisaSmtpAuthentication
 
     Returns true if SMTP authentication is disabled in Exchange Online.
-#>
 
-Function Test-MtCisaSmtpAuthentication {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaSmtpAuthentication
+#>
+function Test-MtCisaSmtpAuthentication {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

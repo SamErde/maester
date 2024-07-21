@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaMfaForAdminManagement.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID f127dc39-bf7a-48bf-8764-e7f1c8b0871d
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy requiring multifactor authentication to access Azure management.
@@ -11,9 +22,11 @@
 
  .Example
   Test-MtCaMfaForAdminManagement
-#>
 
-Function Test-MtCaMfaForAdminManagement {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaMfaForAdminManagement
+#>
+function Test-MtCaMfaForAdminManagement {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

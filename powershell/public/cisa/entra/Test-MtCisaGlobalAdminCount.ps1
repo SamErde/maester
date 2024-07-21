@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaGlobalAdminCount.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 5e3348c4-bc33-4d1e-9ff9-ae73fd1f3e31
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if Global Admins is an acceptable number
 
 .DESCRIPTION
-
     A minimum of two users and a maximum of eight users SHALL be provisioned with the Global Administrator role.
 
 .EXAMPLE
     Test-MtCisaGlobalAdminCount
 
     Returns true if only 2 to 8 users are eligible to be global admins
-#>
 
-Function Test-MtCisaGlobalAdminCount {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaGlobalAdminCount
+#>
+function Test-MtCisaGlobalAdminCount {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaDiagnosticSettings.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 11d803ad-93f9-4884-bf79-486f882bf657
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,7 +14,6 @@
     Checks for configuration of Entra diagnostic settings
 
 .DESCRIPTION
-
     Security logs SHALL be sent to the agency's security operations center for monitoring.
 
 .EXAMPLE
@@ -18,9 +21,10 @@
 
     Returns true if diagnostic settings for the appropriate logs are configured
 
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaDiagnosticSettings
 #>
-
-Function Test-MtCisaDiagnosticSettings {
+function Test-MtCisaDiagnosticSettings {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Diagnostic Settings is a specific term')]
     [CmdletBinding()]
     [OutputType([bool])]

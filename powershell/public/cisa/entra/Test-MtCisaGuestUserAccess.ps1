@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaGuestUserAccess.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 970af008-ce31-400c-9481-dd1f7ed55084
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if guests use proper role template
 
 .DESCRIPTION
-
     Guest users SHOULD have limited or restricted access to Azure AD directory objects.
 
 .EXAMPLE
     Test-MtCisaGuestUserAccess
 
     Returns true if guests use proper role template
-#>
 
-Function Test-MtCisaGuestUserAccess {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaGuestUserAccess
+#>
+function Test-MtCisaGuestUserAccess {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

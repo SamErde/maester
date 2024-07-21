@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaExclusionForDirectorySyncAccount.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 7aa755e8-bd46-4f44-baff-4ba491c12a42
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
     Checks if all conditional access policies scoped to all cloud apps and all users exclude the directory synchronization accounts
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaExclusionForDirectorySyncAccount
-#>
 
-Function Test-MtCaExclusionForDirectorySyncAccount {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaExclusionForDirectorySyncAccount
+#>
+function Test-MtCaExclusionForDirectorySyncAccount {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'PolicyIncludesAllUsers is used in the condition.')]
     [CmdletBinding()]
     [OutputType([bool])]

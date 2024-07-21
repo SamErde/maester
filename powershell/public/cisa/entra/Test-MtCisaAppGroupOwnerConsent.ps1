@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAppGroupOwnerConsent.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID d6d872f5-f99c-46a1-851d-8478666b8ebb
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if group owners can consent to apps
 
 .DESCRIPTION
-
     Group owners SHALL NOT be allowed to consent to applications.
 
 .EXAMPLE
     Test-MtCisaAppGroupOwnerConsent
 
     Returns true if disabled
-#>
 
-Function Test-MtCisaAppGroupOwnerConsent {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAppGroupOwnerConsent
+#>
+function Test-MtCisaAppGroupOwnerConsent {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

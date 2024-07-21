@@ -1,4 +1,15 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaDeviceComplianceExists.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID cb7ddea8-3a54-4777-b3bc-a39e74d9ebc4
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
  .Synopsis
   Checks if the tenant has at least one conditional access policy requiring device compliance.
 
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaDeviceComplianceExists
-#>
 
-Function Test-MtCaDeviceComplianceExists {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaDeviceComplianceExists
+#>
+function Test-MtCaDeviceComplianceExists {
   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Exists is not a plural.')]
   [CmdletBinding()]
   [OutputType([bool])]

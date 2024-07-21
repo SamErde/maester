@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaSpfRestriction.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID 62c9df9b-a8e4-4d31-8c24-5c2e76e3e3ce
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of SPF records for all exo domains
 
 .DESCRIPTION
-
     A list of approved IP addresses for sending mail SHALL be maintained.
 
 .EXAMPLE
     Test-MtCisaSpfRestriction
 
     Returns true if SPF record exists and has a fail all modifier for all exo domains
-#>
 
-Function Test-MtCisaSpfRestriction {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaSpfRestriction
+#>
+function Test-MtCisaSpfRestriction {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaExternalSenderWarning.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID 9e621988-b70a-4bc4-ad31-824f83cd6792
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of transport policies
 
 .DESCRIPTION
-
     External sender warnings SHALL be implemented.
 
 .EXAMPLE
     Test-MtCisaExternalSenderWarning
 
     Returns true if a transport policy appends a warning.
-#>
 
-Function Test-MtCisaExternalSenderWarning {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaExternalSenderWarning
+#>
+function Test-MtCisaExternalSenderWarning {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

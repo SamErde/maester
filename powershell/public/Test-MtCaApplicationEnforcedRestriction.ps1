@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaApplicationEnforcedRestriction.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 09a8643b-b820-40a9-bde3-b3f65075db70
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy is configured to enable application enforced restrictions
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaApplicationEnforcedRestriction
-#>
 
-Function Test-MtCaApplicationEnforcedRestriction {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaApplicationEnforcedRestriction
+#>
+function Test-MtCaApplicationEnforcedRestriction {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

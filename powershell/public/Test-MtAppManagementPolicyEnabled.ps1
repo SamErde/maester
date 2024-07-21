@@ -1,4 +1,15 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtAppManagementPolicyEnabled.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 79e62d97-8012-4ad8-96c4-ac26b60f5b45
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
  .Synopsis
   Checks if the default app management policy is enabled.
 
@@ -7,9 +18,11 @@
 
  .Example
   Test-MtAppManagementPolicyEnabled
-#>
 
-Function Test-MtAppManagementPolicyEnabled {
+.LINK
+    https://maester.dev/docs/commands/Test-MtAppManagementPolicyEnabled
+#>
+function Test-MtAppManagementPolicyEnabled {
   [CmdletBinding()]
   [OutputType([bool])]
   param()

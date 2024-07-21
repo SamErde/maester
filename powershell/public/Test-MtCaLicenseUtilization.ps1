@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaLicenseUtilization.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 04cf8a7c-178b-42d6-8e6a-7095b2379756
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
 .SYNOPSIS
     Test Conditional Access License Utilization and return stats on usage for the specific license.
@@ -16,6 +27,9 @@
     Test-MtCaLicenseUtilization -License P2
 
     This example tests the utilization of P2 licenses in the tenant.
+
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaLicenseUtilization
 #>
 function Test-MtCaLicenseUtilization {
     [CmdletBinding()]

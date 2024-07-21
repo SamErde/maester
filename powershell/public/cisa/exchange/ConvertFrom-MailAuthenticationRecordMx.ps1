@@ -1,38 +1,38 @@
-<#PSScriptInfo
-.DESCRIPTION Maester Test: ConvertFrom-MailAuthenticationRecordMx.ps1
-.VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
-#>
-
-<#
+﻿<#
 .SYNOPSIS
     A simple wrapper for Resolve-DnsName
 
 .DESCRIPTION
-
-Name                                     Type   TTL   Section    NameExchange                              Preference
-----                                     ----   ---   -------    ------------                              ----------
-microsoft.com                            MX     1731  Answer     microsoft-com.mail.protection.outlook.com 10
+    ```
+    Name                                     Type   TTL   Section    NameExchange                              Preference
+    ----                                     ----   ---   -------    ------------                              ----------
+    microsoft.com                            MX     1731  Answer     microsoft-com.mail.protection.outlook.com 10
+    ```
 
 .EXAMPLE
     ConvertFrom-MailAuthenticationRecordMx -DomainName "microsoft.com"
 
     Returns MX records or "Failure to obtain record"
-#>
 
-Function ConvertFrom-MailAuthenticationRecordMx {
+.LINK
+    https://maester.dev/docs/commands/ConvertFrom-MailAuthenticationRecordMx
+#>
+function ConvertFrom-MailAuthenticationRecordMx {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Colors are beautiful')]
     [OutputType([PSCustomObject], [System.String])]
     [cmdletbinding()]
     param(
         [Parameter(Mandatory)]
+        # Domain name to check.
         [string]$DomainName,
 
+        # DNS-server to use for lookup.
         [ipaddress]$DnsServerIpAddress = "1.1.1.1",
 
+        # Use a shorter timeout value for the DNS lookup.
         [switch]$QuickTimeout,
 
+        # Ignore hosts file for domain lookup.
         [switch]$NoHostsFile
     )
 

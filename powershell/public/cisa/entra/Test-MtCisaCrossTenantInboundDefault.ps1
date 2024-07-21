@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaCrossTenantInboundDefault.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID dd435007-f24b-42f9-8af1-185866ad7e46
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,7 +14,6 @@
     Checks cross-tenant default inbound access configuration
 
 .DESCRIPTION
-
     Guest invites SHOULD only be allowed to specific external domains that have been authorized by the agency for legitimate business purposes.
 
 .EXAMPLE
@@ -18,9 +21,10 @@
 
     Returns true if cross-tenant default inbound access is set to block.
 
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaCrossTenantInboundDefault
 #>
-
-Function Test-MtCisaCrossTenantInboundDefault {
+function Test-MtCisaCrossTenantInboundDefault {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

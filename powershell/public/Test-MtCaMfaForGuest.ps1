@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaMfaForGuest.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID ae59888a-cc45-4be1-88d4-150e5c3907b6
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
     .Synopsis
     Checks if the tenant has at least one conditional access policy requiring multifactor authentication for all guest users.
@@ -10,9 +21,11 @@
 
     .Example
     Test-MtCaMfaForGuest
-#>
 
-Function Test-MtCaMfaForGuest {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaMfaForGuest
+#>
+function Test-MtCaMfaForGuest {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

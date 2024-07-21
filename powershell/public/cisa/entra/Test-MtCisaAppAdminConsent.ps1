@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAppAdminConsent.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID fc90951a-9685-4d3f-9f5b-b0e71b53d20d
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if admin consent workflow is configured with reviewers
 
 .DESCRIPTION
-
     An admin consent workflow SHALL be configured for applications.
 
 .EXAMPLE
     Test-MtCisaAppAdminConsent
 
     Returns true if configured
-#>
 
-Function Test-MtCisaAppAdminConsent {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAppAdminConsent
+#>
+function Test-MtCisaAppAdminConsent {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

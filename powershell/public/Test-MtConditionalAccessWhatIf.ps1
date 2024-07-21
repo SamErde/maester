@@ -1,4 +1,15 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtConditionalAccessWhatIf.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 8ff12011-cc7a-4803-9e65-1444a9113a7f
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
 .SYNOPSIS
     Tests Conditional Access evaluation with What If for a given scenario.
 
@@ -44,7 +55,10 @@
         -UserRiskLevel High
 
     This example tests the Conditional Access policies for a user accessing the **My Security Info** page from an **Android** device with a **High** user risk level.
-    #>
+
+.LINK
+    https://maester.dev/docs/commands/Test-MtConditionalAccessWhatIf
+#>
 function Test-MtConditionalAccessWhatIf {
     [CmdletBinding(DefaultParameterSetName = 'ApplicationBasedCA')]
     [OutputType([object])]

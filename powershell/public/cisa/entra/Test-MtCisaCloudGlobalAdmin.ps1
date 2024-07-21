@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaCloudGlobalAdmin.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID a6bfc9ca-d68e-48af-98b1-3d3e7a9e61ab
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if Global Admins are cloud users
 
 .DESCRIPTION
-
     Privileged users SHALL be provisioned cloud-only accounts separate from an on-premises directory or other federated identity providers.
 
 .EXAMPLE
     Test-MtCisaCloudGlobalAdmin
 
     Returns true if all global admins are cloud users
-#>
 
-Function Test-MtCisaCloudGlobalAdmin {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaCloudGlobalAdmin
+#>
+function Test-MtCisaCloudGlobalAdmin {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

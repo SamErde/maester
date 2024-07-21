@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaMfa.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID dd5203fc-59b6-4d97-b5da-04914cc9cb10
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if Conditional Access Policy requiring MFA is enabled
 
 .DESCRIPTION
-
     If phishing-resistant MFA has not been enforced, an alternative MFA method SHALL be enforced for all users
 
 .EXAMPLE
     Test-MtCisaMfa
 
     Returns true if at least one policy requires MFA
-#>
 
-Function Test-MtCisaMfa {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaMfa
+#>
+function Test-MtCisaMfa {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

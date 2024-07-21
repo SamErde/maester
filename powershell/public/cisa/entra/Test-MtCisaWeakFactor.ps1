@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaWeakFactor.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 050fa067-c14a-4ddf-950f-9f2dc190d7a7
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if weak Authentication Methods are disabled
 
 .DESCRIPTION
-
     The authentication methods SMS, Voice Call, and Email One-Time Passcode (OTP) SHALL be disabled.
 
 .EXAMPLE
     Test-MtCisaWeakFactor
 
     Returns true if weak Authentication Methods are disabled
-#>
 
-Function Test-MtCisaWeakFactor {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaWeakFactor
+#>
+function Test-MtCisaWeakFactor {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

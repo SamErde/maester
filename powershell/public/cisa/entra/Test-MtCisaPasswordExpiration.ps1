@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaPasswordExpiration.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 381cbfc3-b415-46e1-8594-6145dabd7ec5
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if passwords are set to not expire
 
 .DESCRIPTION
-
     User passwords SHALL NOT expire.
 
 .EXAMPLE
     Test-MtCisaPasswordExpiration
 
     Returns true if at least 1 domain has password expiration of 100 years or greater
-#>
 
-Function Test-MtCisaPasswordExpiration {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaPasswordExpiration
+#>
+function Test-MtCisaPasswordExpiration {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

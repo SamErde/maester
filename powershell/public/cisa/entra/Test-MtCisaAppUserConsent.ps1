@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAppUserConsent.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID ffe3b06c-9a9a-4089-aa11-a324837a4ae0
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if user app consent is prevented
 
 .DESCRIPTION
-
     Only administrators SHALL be allowed to consent to applications.
 
 .EXAMPLE
     Test-MtCisaAppUserConsent
 
     Returns true if disabled
-#>
 
-Function Test-MtCisaAppUserConsent {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAppUserConsent
+#>
+function Test-MtCisaAppUserConsent {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

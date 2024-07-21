@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAssignmentNotification.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID f6060ec4-a716-406b-a33e-244af8e72fed
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks for notification on role assignments
 
 .DESCRIPTION
-
     Eligible and Active highly privileged role assignments SHALL trigger an alert.
 
 .EXAMPLE
     Test-MtCisaAssignmentNotification
 
     Returns true if notifications are set for all roles
-#>
 
-Function Test-MtCisaAssignmentNotification {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAssignmentNotification
+#>
+function Test-MtCisaAssignmentNotification {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaBlockUnknownOrUnsupportedDevicePlatform.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID dc2df980-381c-42dd-8cfd-313972884b50
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one Conditional Access policy is configured to block access for unknown or unsupported device platforms
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaBlockUnknownOrUnsupportedDevicePlatform
-#>
 
-Function Test-MtCaBlockUnknownOrUnsupportedDevicePlatform {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaBlockUnknownOrUnsupportedDevicePlatform
+#>
+function Test-MtCaBlockUnknownOrUnsupportedDevicePlatform {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

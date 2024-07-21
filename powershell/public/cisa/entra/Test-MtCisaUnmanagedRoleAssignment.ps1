@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaUnmanagedRoleAssignment.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID e4ae3980-e8d8-4db2-8c74-1daa19435ccf
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks for active role assingments with no start time
 
 .DESCRIPTION
-
     Provisioning users to highly privileged roles SHALL NOT occur outside of a PAM system.
 
 .EXAMPLE
     Test-MtCisaUnmanagedRoleAssignment
 
     Returns true if all role assignments have a start time
-#>
 
-Function Test-MtCisaUnmanagedRoleAssignment {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaUnmanagedRoleAssignment
+#>
+function Test-MtCisaUnmanagedRoleAssignment {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

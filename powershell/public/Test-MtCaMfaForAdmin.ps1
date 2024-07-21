@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaMfaForAdmin.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID a27f619b-60eb-47a0-969e-60f212cb68a6
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy requiring MFA for admins
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaMfaForAdmin
-#>
 
-Function Test-MtCaMfaForAdmin {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaMfaForAdmin
+#>
+function Test-MtCaMfaForAdmin {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'PolicyIncludesAllRoles is used in the condition.')]
     [CmdletBinding()]
     [OutputType([bool])]

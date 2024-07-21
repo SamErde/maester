@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaBlockHighRiskSignIn.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 41fdeb49-a45a-4d75-b428-cf3a20e2b42c
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if Sign-In Risk Based Policies - MS.AAD.2.3 is set to 'blocked'
 
 .DESCRIPTION
-
     Sign-ins detected as high risk SHALL be blocked.
 
 .EXAMPLE
     Test-MtCisaBlockHighRiskSignIn
 
     Returns true if at least one policy is set to block high risk sign-ins.
-#>
 
-Function Test-MtCisaBlockHighRiskSignIn {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaBlockHighRiskSignIn
+#>
+function Test-MtCisaBlockHighRiskSignIn {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

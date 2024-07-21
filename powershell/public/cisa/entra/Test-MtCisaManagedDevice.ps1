@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaManagedDevice.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID f630a74e-02f4-4301-b44c-bcd84f8ea58e
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,19 +14,21 @@
     Checks if Conditional Access Policy requiring managed device is enabled
 
 .DESCRIPTION
-
     Managed devices SHOULD be required for authentication.
 
 .EXAMPLE
     Test-MtCisaManagedDevice
 
     Returns true if at least one policy requires managed devices
-#>
 
-Function Test-MtCisaManagedDevice {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaManagedDevice
+#>
+function Test-MtCisaManagedDevice {
     [CmdletBinding()]
     [OutputType([bool])]
     param(
+        # Do not check if Hybrid Joined devices are accepted.
         [switch]$SkipHybridJoinCheck
     )
 

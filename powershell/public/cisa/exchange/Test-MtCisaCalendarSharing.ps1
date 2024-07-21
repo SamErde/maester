@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaCalendarSharing.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID e85f8a91-4371-4f2d-bf1b-ed4cb5327919
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of sharing policies
 
 .DESCRIPTION
-
     Calendar details SHALL NOT be shared with all domains.
 
 .EXAMPLE
     Test-MtCisaCalendarSharing
 
     Returns true if no sharing policies allow uncontrolled calendar sharing.
-#>
 
-Function Test-MtCisaCalendarSharing {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaCalendarSharing
+#>
+function Test-MtCisaCalendarSharing {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

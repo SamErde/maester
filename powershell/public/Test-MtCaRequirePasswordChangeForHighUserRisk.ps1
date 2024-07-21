@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaRequirePasswordChangeForHighUserRisk.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 076afe42-8196-4ddb-a8e5-dbd88268947e
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy requiring password change for high user risk.
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaRequirePasswordChangeForHighUserRisk
-#>
 
-Function Test-MtCaRequirePasswordChangeForHighUserRisk {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaRequirePasswordChangeForHighUserRisk
+#>
+function Test-MtCaRequirePasswordChangeForHighUserRisk {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

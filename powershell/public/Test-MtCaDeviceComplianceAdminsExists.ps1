@@ -1,4 +1,15 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaDeviceComplianceAdminsExists.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 52b9dc63-9d15-41f2-ac0a-2eda929ed17a
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
  .Synopsis
   Checks if the tenant has at least one conditional access policy requiring device compliance for admins.
 
@@ -11,9 +22,11 @@
 
  .Example
   Test-MtCaDeviceComplianceAdminsExists
-#>
 
-Function Test-MtCaDeviceComplianceAdminsExists {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaDeviceComplianceAdminsExists
+#>
+function Test-MtCaDeviceComplianceAdminsExists {
   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Exists is not a plural.')]
   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '', Justification = 'PSScriptAnalyzer bug is not detecting usage of PolicyIncludesAllRoles')]
   [CmdletBinding()]

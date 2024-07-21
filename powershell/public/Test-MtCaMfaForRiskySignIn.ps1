@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaMfaForRiskySignIn.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 97406122-e922-4775-bd3b-84eb6f202b50
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy requiring multifactor authentication for risky sign-ins.
@@ -10,9 +21,11 @@
 
  .Example
   Test-MtCaMfaForRiskySignIn
-#>
 
-Function Test-MtCaMfaForRiskySignIn {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaMfaForRiskySignIn
+#>
+function Test-MtCaMfaForRiskySignIn {
     [CmdletBinding()]
     [OutputType([bool])]
     param ()

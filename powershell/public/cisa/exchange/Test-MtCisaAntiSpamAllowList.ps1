@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAntiSpamAllowList.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID dcf242c7-e3ba-4fc6-aa01-7c3a3a42d307
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of anti-spam policies
 
 .DESCRIPTION
-
     IP allow lists SHOULD NOT be created.
 
 .EXAMPLE
     Test-MtCisaAntiSpamAllowList
 
     Returns true if no allowed IPs in anti-spam policy
-#>
 
-Function Test-MtCisaAntiSpamAllowList {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAntiSpamAllowList
+#>
+function Test-MtCisaAntiSpamAllowList {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

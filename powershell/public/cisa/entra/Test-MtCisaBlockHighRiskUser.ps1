@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaBlockHighRiskUser.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 2189212c-62ea-4135-a55e-8bc8d8a32d31
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if User Risk Based Policies - MS.AAD.2.1 is set to 'blocked'
 
 .DESCRIPTION
-
     Users detected as high risk SHALL be blocked.
 
 .EXAMPLE
     Test-MtCisaBlockHighRiskUser
 
     Returns true if at least one policy is set to block high risk users.
-#>
 
-Function Test-MtCisaBlockHighRiskUser {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaBlockHighRiskUser
+#>
+function Test-MtCisaBlockHighRiskUser {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

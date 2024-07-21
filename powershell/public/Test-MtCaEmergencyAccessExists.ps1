@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaEmergencyAccessExists.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 4c8c1714-8fe0-44d9-8426-e606981e5424
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one emergency/break glass account or account group excluded from all conditional access policies
@@ -11,9 +22,11 @@
 
  .Example
   Test-MtCaEmergencyAccessExists
-#>
 
-Function Test-MtCaEmergencyAccessExists {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaEmergencyAccessExists
+#>
+function Test-MtCaEmergencyAccessExists {
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Exists is not a plural.')]
     [CmdletBinding()]
     [OutputType([bool])]

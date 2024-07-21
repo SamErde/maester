@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaGuestInvitation.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 35c4a3d4-a6d3-4df6-9b42-f59dccfd0c93
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if guest invitiations are restricted to admins
 
 .DESCRIPTION
-
     Only users with the Guest Inviter role SHOULD be able to invite guest users.
 
 .EXAMPLE
     Test-MtCisaGuestInvitation
 
     Returns true if guest invitiations are restricted to admins
-#>
 
-Function Test-MtCisaGuestInvitation {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaGuestInvitation
+#>
+function Test-MtCisaGuestInvitation {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

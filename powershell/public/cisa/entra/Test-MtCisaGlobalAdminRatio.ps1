@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaGlobalAdminRatio.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 7d0cdab0-fbc5-4836-b598-51d84787b508
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks the ratio of global admins to privileged roles
 
 .DESCRIPTION
-
     Privileged users SHALL be provisioned with finer-grained roles instead of Global Administrator.
 
 .EXAMPLE
     Test-MtCisaGlobalAdminRatio
 
     Returns true if global admin to privileged roles ration is 1 or less
-#>
 
-Function Test-MtCisaGlobalAdminRatio {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaGlobalAdminRatio
+#>
+function Test-MtCisaGlobalAdminRatio {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

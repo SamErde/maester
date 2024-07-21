@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaRequireActivationApproval.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID a7bb33fe-bab0-431f-84a0-e22a848c258a
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks for approval requirement on activation of Gloabl Admin role
 
 .DESCRIPTION
-
     Activation of the Global Administrator role SHALL require approval.
 
 .EXAMPLE
     Test-MtCisaRequireActivationApproval
 
     Returns true if the Global Admin role requires approval on activation
-#>
 
-Function Test-MtCisaRequireActivationApproval {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaRequireActivationApproval
+#>
+function Test-MtCisaRequireActivationApproval {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

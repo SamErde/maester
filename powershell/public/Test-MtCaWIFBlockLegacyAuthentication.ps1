@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaWIFBlockLegacyAuthentication.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 595a8c67-6ebe-4290-ae22-7e2f366f6032
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
 .SYNOPSIS
   Checks if the user is blocked from using legacy authentication
@@ -10,6 +21,9 @@
 
 .EXAMPLE
     Test-MtCaWIFBlockLegacyAuthentication -UserId "e7417ac7-0485-4014-9100-33163bd6211f"
+
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaWIFBlockLegacyAuthentication
 #>
 function Test-MtCaWIFBlockLegacyAuthentication {
     [CmdletBinding()]

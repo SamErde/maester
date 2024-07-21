@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtEidscaControl.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID c8b09971-cf62-4eb6-96dc-cb7b399e80d2
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
 .SYNOPSIS
     Tests your environment for compliance with the specified EIDSCA control
@@ -9,9 +20,11 @@
     Test-MtEidscaControl -CheckId AP01
 
     Returns the result of the EIDSCA AP01 control check
-#>
 
-Function Test-MtEidscaControl {
+.LINK
+    https://maester.dev/docs/commands/Test-MtEidscaControl
+#>
+function Test-MtEidscaControl {
     [CmdletBinding()]
     [OutputType([bool])]
     param(
@@ -22,5 +35,6 @@ Function Test-MtEidscaControl {
         $CheckId
     )
 
+    Write-Verbose -Message "Invoking EIDSCA control check $CheckId."
     & "Test-MtEidsca$CheckId"
 }

@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaMailboxAuditing.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID d51afa01-940e-4ce9-bfd4-01102ead9d1b
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of mailbox auditing
 
 .DESCRIPTION
-
     Mailbox auditing SHALL be enabled.
 
 .EXAMPLE
     Test-MtCisaMailboxAuditing
 
     Returns true if mailbox auditing is enabled.
-#>
 
-Function Test-MtCisaMailboxAuditing {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaMailboxAuditing
+#>
+function Test-MtCisaMailboxAuditing {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

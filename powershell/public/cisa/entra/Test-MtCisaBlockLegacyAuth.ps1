@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaBlockLegacyAuth.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID c4c39403-0ee6-4cbd-be9d-4df56658ce6f
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks if Baseline Policies Legacy Authentication - MS.AAD.1.1v1 is set to 'blocked'
 
 .DESCRIPTION
-
     Legacy authentication SHALL be blocked.
 
 .EXAMPLE
     Test-MtCisaBlockLegacyAuth
 
     Returns true if a CA policy exists that blocks legacy authentication.
-#>
 
-Function Test-MtCisaBlockLegacyAuth {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaBlockLegacyAuth
+#>
+function Test-MtCisaBlockLegacyAuth {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

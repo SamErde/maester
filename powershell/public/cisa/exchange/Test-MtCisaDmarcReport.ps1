@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaDmarcReport.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID b2f010c2-4253-4d8f-99b1-efa57f9f0b4a
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of DMARC records for all exo domains
 
 .DESCRIPTION
-
     An agency point of contact SHOULD be included for aggregate and failure reports.
 
 .EXAMPLE
     Test-MtCisaDmarcReport
 
     Returns true if DMARC record inlcudes report targets within same domain
-#>
 
-Function Test-MtCisaDmarcReport {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaDmarcReport
+#>
+function Test-MtCisaDmarcReport {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

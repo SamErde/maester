@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaEnforceNonPersistentBrowserSession.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 376c0b30-4eaa-4acb-ac2d-18a57c034368
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy enforcing non persistent browser session
@@ -10,13 +21,16 @@
 
  .Example
   Test-MtCaEnforceNonPersistentBrowserSession
-#>
 
-Function Test-MtCaEnforceNonPersistentBrowserSession {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaEnforceNonPersistentBrowserSession
+#>
+function Test-MtCaEnforceNonPersistentBrowserSession {
     [CmdletBinding()]
     [OutputType([bool])]
     param (
         [Parameter()]
+        # Ignore device filters for compliant devices.
         [switch]$AllDevices
     )
 

@@ -1,4 +1,15 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtConnection.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 12470ff3-b959-4dcb-8607-0b8cb4c56e9f
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
 .SYNOPSIS
    Checks if the current session is connected to the specified service. Use -Verbose to see the connection status for each service.
 
@@ -14,8 +25,11 @@
     Test-MtConnection -Service All
 
     Checks if the current session is connected to all services including Azure, Exchange and Microsoft Graph.
+
+.LINK
+    https://maester.dev/docs/commands/Test-MtConnection
 #>
-Function Test-MtConnection {
+function Test-MtConnection {
     [CmdletBinding()]
     param(
         # Checks if the current session is connected to the specified service

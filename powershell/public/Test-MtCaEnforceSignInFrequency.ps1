@@ -1,3 +1,14 @@
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaEnforceSignInFrequency.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 39d8cd31-6b8b-4652-a0ed-41e07061835d
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
 <#
  .Synopsis
   Checks if the tenant has at least one conditional access policy enforcing sign-in frequency for non-corporate devices
@@ -10,13 +21,16 @@
 
  .Example
   Test-MtCaEnforceSignInFrequency
-#>
 
-Function Test-MtCaEnforceSignInFrequency {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaEnforceSignInFrequency
+#>
+function Test-MtCaEnforceSignInFrequency {
     [CmdletBinding()]
     [OutputType([bool])]
     param (
         [Parameter()]
+        # Ignore device filters for compliant devices.
         [switch]$AllDevices
     )
 

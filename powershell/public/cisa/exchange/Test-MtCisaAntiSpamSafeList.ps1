@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaAntiSpamSafeList.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID 25681297-1cc6-4f73-9c87-22df565488c1
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of anti-spam policies
 
 .DESCRIPTION
-
     Safe lists SHOULD NOT be enabled.
 
 .EXAMPLE
     Test-MtCisaAntiSpamSafeList
 
     Returns true if Safe List is disabled in anti-spam policy
-#>
 
-Function Test-MtCisaAntiSpamSafeList {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaAntiSpamSafeList
+#>
+function Test-MtCisaAntiSpamSafeList {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

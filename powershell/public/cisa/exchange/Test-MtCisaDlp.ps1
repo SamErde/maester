@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaDlp.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID 43187b44-517e-420b-86d8-37a4d12ebca5
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of DLP for EXO
 
 .DESCRIPTION
-
     A DLP solution SHALL be used.
 
 .EXAMPLE
     Test-MtCisaDlp
 
     Returns true if
-#>
 
-Function Test-MtCisaDlp {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaDlp
+#>
+function Test-MtCisaDlp {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

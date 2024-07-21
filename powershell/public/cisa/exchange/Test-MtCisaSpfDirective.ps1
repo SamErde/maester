@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaSpfDirective.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID 7bfbd082-3768-4360-98f9-c18d1a2cda0c
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,16 +14,17 @@
     Checks state of SPF records for all exo domains
 
 .DESCRIPTION
-
     An SPF policy SHALL be published for each domain, designating only these addresses as approved senders.
 
 .EXAMPLE
     Test-MtCisaSpfDirective
 
     Returns true if SPF record exists and has at least one directive
-#>
 
-Function Test-MtCisaSpfDirective {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaSpfDirective
+#>
+function Test-MtCisaSpfDirective {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

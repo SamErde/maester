@@ -1,4 +1,15 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtCaAllAppsExists.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 18c5244f-86df-40bd-b8aa-626ecc7a067b
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
   .Synopsis
   Checks if the tenant has at least one fallback policy targetting All Apps and All Users.
 
@@ -18,15 +29,17 @@
   Test-MtCaAllAppsExists -SkipCheckAllUsers
 
   Returns true if at least one conditional access policy exists that targets all cloud apps and all users, but skips the check for all users.
-#>
 
-Function Test-MtCaAllAppsExists {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCaAllAppsExists
+#>
+function Test-MtCaAllAppsExists {
   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '', Justification = 'Exists is not a plurality')]
   [CmdletBinding()]
   [OutputType([bool])]
   param (
-
     [Parameter(Position = 0)]
+    # Do not check for All Users target in policy.
     [switch] $SkipCheckAllUsers = $false
   )
 

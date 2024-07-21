@@ -1,4 +1,15 @@
-﻿<#
+<#PSScriptInfo
+.DESCRIPTION Maester Test: Test-MtPrivPermanentDirectoryRole.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID 0c44e089-5e4e-4f9f-b504-2a91d9ce370c
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
  .Synopsis
   Checks if Permanent Assignments for Entra ID roles exists
 
@@ -7,17 +18,22 @@
 
  .Example
   Test-MtPrivPermanentDirectoryRole -FilteredAccessLevel "ControlPlane" -FilterPrincipal "ExternalUser"
+
+.LINK
+  https://maester.dev/docs/commands/Test-MtPrivPermanentDirectoryRole
 #>
-Function Test-MtPrivPermanentDirectoryRole {
+function Test-MtPrivPermanentDirectoryRole {
   [OutputType([bool])]
   [CmdletBinding()]
   param (
     [Parameter(ValueFromPipelineByPropertyName = $true)]
     [ValidateSet("ControlPlane", "ManagementPlane")]
+    # Filter based on Enterprise Access Model Tiering. Can be 'ControlPlane' and/or 'ManagementPlane'.
     [string[]]$FilteredAccessLevel = $null,
 
     [Parameter(ValueFromPipelineByPropertyName = $true, Mandatory)]
     [ValidateSet("ExternalUser", "HybridUser", "ServicePrincipalClientSecret", "ServicePrincipalObject", "UserMailbox")]
+    # Filter based on principal types. Accepted values are 'ExternalUser', 'HybridUser', 'ServicePrincipalClientSecret', 'ServicePrincipalObject' and/or 'UserMailbox'.
     [object[]]$FilterPrincipal
   )
 

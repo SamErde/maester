@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaActivationNotification.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, Entra
+.GUID 3d234863-a3e8-4692-b080-63485b890629
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,7 +14,6 @@
     Checks for notification on role activation
 
 .DESCRIPTION
-
     User activation of the Global Administrator role SHALL trigger an alert.
     User activation of other highly privileged roles SHOULD trigger an alert.
 
@@ -23,12 +26,15 @@
     Test-MtCisaActivationNotification -GlobalAdminOnly
 
     Returns true if notifications are set for activation of the Global Admin role
-#>
 
-Function Test-MtCisaActivationNotification {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaActivationNotification
+#>
+function Test-MtCisaActivationNotification {
     [CmdletBinding()]
     [OutputType([bool])]
     param(
+        # Check Global Administrator role only
         [switch]$GlobalAdminOnly
     )
 

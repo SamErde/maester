@@ -1,8 +1,12 @@
 <#PSScriptInfo
 .DESCRIPTION Maester Test: Test-MtCisaDkim.ps1
+.TAGS Active, CISA
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
 .VERSION 0.0.1
-.AUTHOR Maester Team
-.TAGS Active, CISA, exchange
+.GUID 6f897dc5-2bf8-4894-acf8-4f8a64393b39
+.ICONURI https://maester.dev/img/logo.svg
 #>
 
 <#
@@ -10,19 +14,21 @@
     Checks state of DKIM for all EXO domains
 
 .DESCRIPTION
-
     DKIM SHOULD be enabled for all domains.
 
 .EXAMPLE
     Test-MtCisaDkim
 
     Returns true if DKIM record exists and EXO shows DKIM enabled
-#>
 
-Function Test-MtCisaDkim {
+.LINK
+    https://maester.dev/docs/commands/Test-MtCisaDkim
+#>
+function Test-MtCisaDkim {
     [CmdletBinding()]
     [OutputType([bool])]
     param(
+        # Selector-name for the DKIM record to test..
         [string]$Selector = "selector1"
     )
 
