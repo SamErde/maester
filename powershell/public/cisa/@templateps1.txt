@@ -1,4 +1,15 @@
-﻿<#
+﻿<#PSScriptInfo
+.DESCRIPTION %Description%
+.TAGS Active, %Category%
+.AUTHOR The Maester Team
+.COMPANYNAME The Maester Team
+.COPYRIGHT Maester Team. All rights reserved.
+.VERSION 0.0.1
+.GUID %GUID%
+.ICONURI https://maester.dev/img/logo.svg
+#>
+
+<#
 .SYNOPSIS
     Checks ...
 
