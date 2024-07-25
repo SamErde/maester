@@ -23,7 +23,7 @@
     Returns true if ...
 #>
 
-Function FunctionName {
+function FunctionName {
     [CmdletBinding()]
     [OutputType([bool])]
     param()

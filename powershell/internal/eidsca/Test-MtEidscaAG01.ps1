@@ -27,12 +27,12 @@
     Returns the result of graph.microsoft.com/beta/policies/authenticationMethodsPolicy.policyMigrationState -eq 'migrationComplete'
 #>
 
-Function Test-MtEidscaAG01 {
+function Test-MtEidscaAG01 {
     [CmdletBinding()]
     [OutputType([bool])]
     param()
 
-    
+
 
     $result = Invoke-MtGraphRequest -RelativeUri "policies/authenticationMethodsPolicy" -ApiVersion beta
 

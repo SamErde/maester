@@ -27,12 +27,12 @@
     Returns the result of graph.microsoft.com/beta/policies/authorizationPolicy.defaultUserRolePermissions.allowedToReadOtherUsers -eq 'true'
 #>
 
-Function Test-MtEidscaAP14 {
+function Test-MtEidscaAP14 {
     [CmdletBinding()]
     [OutputType([bool])]
     param()
 
-    
+
 
     $result = Invoke-MtGraphRequest -RelativeUri "policies/authorizationPolicy" -ApiVersion beta
 
