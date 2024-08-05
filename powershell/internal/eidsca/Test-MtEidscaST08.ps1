@@ -15,7 +15,7 @@
 
 .DESCRIPTION
 
-    Indicating whether or not a guest user can be an owner of groups
+    Indicating whether or not a guest user can be an owner of groups, manage
 
     Queries settings
     and returns the result of
@@ -32,8 +32,7 @@ function Test-MtEidscaST08 {
     [OutputType([bool])]
     param()
 
-
-
+    
     $result = Invoke-MtGraphRequest -RelativeUri "settings" -ApiVersion beta
 
     [string]$tenantValue = $result.values | where-object name -eq 'AllowGuestsToBeGroupOwner' | select-object -expand value
