@@ -29,6 +29,11 @@ function Test-MtCisaAppUserConsent {
     [OutputType([bool])]
     param()
 
+    if(!(Test-MtConnection Graph)){
+        Add-MtTestResultDetail -SkippedBecause NotConnectedGraph
+        return $null
+    }
+
     $result = Invoke-MtGraphRequest -RelativeUri "policies/authorizationPolicy" -ApiVersion v1.0
 
     $permissions = $result.defaultUserRolePermissions.permissionGrantPoliciesAssigned | Where-Object {`

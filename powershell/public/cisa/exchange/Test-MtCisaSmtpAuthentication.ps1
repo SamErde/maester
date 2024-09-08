@@ -34,7 +34,7 @@ function Test-MtCisaSmtpAuthentication {
         return $null
     }
 
-    $config = Get-TransportConfig
+    $config = Get-MtExo -Request TransportConfig
 
     $testResult = $config.SmtpClientAuthenticationDisabled
 

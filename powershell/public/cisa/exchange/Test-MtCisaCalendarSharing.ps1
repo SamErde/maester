@@ -34,7 +34,7 @@ function Test-MtCisaCalendarSharing {
         return $null
     }
 
-    $policies = Get-SharingPolicy
+    $policies = Get-MtExo -Request SharingPolicy
 
     $resultPolicies = $policies | Where-Object {`
         $_.Enabled -and `

@@ -34,7 +34,7 @@ function Test-MtCisaDmarcReport {
         return $null
     }
 
-    $acceptedDomains = Get-AcceptedDomain
+    $acceptedDomains = Get-MtExo -Request AcceptedDomain
     <# Parked domains should have DMARC with reject policy
     $sendingDomains = $acceptedDomains | Where-Object {`
         -not $_.SendingFromDomainDisabled

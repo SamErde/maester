@@ -34,7 +34,7 @@ function Test-MtCisaMailboxAuditing {
         return $null
     }
 
-    $config = Get-OrganizationConfig
+    $config = Get-MtExo -Request OrganizationConfig
 
     $testResult = (-not $config.AuditDisabled)
 

@@ -34,7 +34,7 @@ function Test-MtCisaAntiSpamAllowList {
         return $null
     }
 
-    $policy = Get-HostedConnectionFilterPolicy
+    $policy = Get-MtExo -Request HostedConnectionFilterPolicy
 
     $resultPolicy = $policy | Where-Object {`
         ($_.IPAllowList | Measure-Object).Count -gt 0

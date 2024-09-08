@@ -35,9 +35,12 @@ function Test-MtCisaDlp {
     }elseif(!(Test-MtConnection SecurityCompliance)){
         Add-MtTestResultDetail -SkippedBecause NotConnectedSecurityCompliance
         return $null
+    }elseif($null -eq (Get-MtLicenseInformation -Product ExoDlp)){
+        Add-MtTestResultDetail -SkippedBecause NotLicensedExoDlp
+        return $null
     }
 
-    $policies = Get-DlpCompliancePolicy
+    $policies = Get-MtExo -Request DlpCompliancePolicy
 
     $resultPolicies = $policies | Where-Object {`
         $_.ExchangeLocation.DisplayName -contains "All" -and `

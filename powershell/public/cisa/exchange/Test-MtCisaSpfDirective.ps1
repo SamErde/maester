@@ -34,7 +34,7 @@ function Test-MtCisaSpfDirective {
         return $null
     }
 
-    $acceptedDomains = Get-AcceptedDomain
+    $acceptedDomains = Get-MtExo -Request AcceptedDomain
     $sendingDomains = $acceptedDomains | Where-Object {`
         -not $_.SendingFromDomainDisabled
     }
