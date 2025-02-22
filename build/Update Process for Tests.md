@@ -190,3 +190,25 @@ In the repository, a GitHub action could easily pull information about every scr
 Working through this thought exercise has stimulated another thought: it may also be helpful to create a new, separate repository for 'maester-tests' in the 'maester' organization.
 
 This may make it easier to version tests, build and version bundles of tests for specific test sources, and check/update tests from clients.
+
+## Follow-Up
+
+### Potential Process
+
+Add a property for source repository URI if a 3rd party test set.
+
+Add for each list.
+
+Create list to remove or deprecate
+Create list to update
+Create list to add
+Check status tag of reference object
+Look for GUID that exists only on one side.
+Compare version property for matched GUIDs.
+Add script to compare local object to reference object (repo).
+
+Update template for all tests.
+Add meta data for all tests.
+Add local check with rollup to one custom object for comparison.
+Add Pester validation of tests to ensure they have required tags and metadata.
+Add GitHub action check that creates one JSON object in GH and also pushes it to the Maester.dev site.
