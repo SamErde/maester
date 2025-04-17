@@ -31,6 +31,7 @@
     https://maester.dev/docs/commands/Test-MtConnection
     #>
     [CmdletBinding()]
+    [OutputType([bool], [PSCustomObject])]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', 'AvoidUsingWriteHost', Justification = 'Sending colorful output to host in addition to rich object output.')]
     param(
         # Checks if the current session is connected to the specified service
@@ -44,6 +45,7 @@
     )
 
     begin {
+        "Testing connection to $($Service -join ', ') services and returning $(if ($Details.IsPresent) { 'all connection details' } else { 'a Boolean result' })." | Write-Verbose
         $MtConnections = [PSCustomObject]@{
             PSTypeName  = 'Maester.Connections'
             Azure = $null
