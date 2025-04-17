@@ -171,7 +171,7 @@
          }
          O365GermanyCloud = @{
             ConnectionUri    = 'https://ps.compliance.protection.outlook.com/powershell-liveid/'
-            AuthZEndpointUri = 'https://login.microsoftonline.de/common'
+            AuthZEndpointUri = 'https://login.microsoftonline.com/common'
          }
          O365Default      = @{
             ConnectionUri    = 'https://ps.compliance.protection.outlook.com/powershell-liveid/'
