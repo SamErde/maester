@@ -105,13 +105,13 @@
 
       # The services to connect to such as Azure and EXO. Default is Graph.
       [ValidateSet('All', 'Azure', 'ExchangeOnline', 'Graph', 'SecurityCompliance', 'Teams')]
-      [string[]]$Service = 'Graph',
+      [string[]]$Service = 'All',
 
       # The Tenant ID to connect to, if not specified the sign-in user's default tenant is used.
       [string]$TenantId
    )
 
-   $__MtSession.Connections = $Service
+   #$__MtSession.Connections = $Service
 
    $OrderedImport = Get-ModuleImportOrder -Name @('Az.Accounts', 'ExchangeOnlineManagement', 'Microsoft.Graph.Authentication', 'MicrosoftTeams')
    switch ($OrderedImport.Name) {
@@ -152,83 +152,61 @@
             }
          }
 
-         if ($Service -contains 'SecurityCompliance' -or $Service -contains 'All') {
-            $Environments = @{
-               O365China        = @{
-                  ConnectionUri    = 'https://ps.compliance.protection.partner.outlook.cn/powershell-liveid'
-                  AuthZEndpointUri = 'https://login.chinacloudapi.cn/common'
-               }
-               O365GermanyCloud = @{
-                  ConnectionUri    = 'https://ps.compliance.protection.outlook.com/powershell-liveid/'
-                  AuthZEndpointUri = 'https://login.microsoftonline.com/common'
-               }
-               O365Default      = @{
-                  ConnectionUri    = 'https://ps.compliance.protection.outlook.com/powershell-liveid/'
-                  AuthZEndpointUri = 'https://login.microsoftonline.com/common'
-               }
-               O365USGovGCCHigh = @{
-                  ConnectionUri    = 'https://ps.compliance.protection.office365.us/powershell-liveid/'
-                  AuthZEndpointUri = 'https://login.microsoftonline.us/common'
-               }
-               O365USGovDoD     = @{
-                  ConnectionUri    = 'https://l5.ps.compliance.protection.office365.us/powershell-liveid/'
-                  AuthZEndpointUri = 'https://login.microsoftonline.us/common'
-               }
-            }
-            Write-Verbose 'Connecting to Microsoft Security & Compliance PowerShell'
-            if ($Service -notcontains 'ExchangeOnline' -and $Service -notcontains 'All') {
-               Write-Host "`nThe Security & Compliance module is dependent on the Exchange Online module. Please include ExchangeOnline when specifying the services.`nFor more information see https://learn.microsoft.com/en-us/powershell/exchange/connect-to-scc-powershell" -ForegroundColor Red
-            } else {
-               if ($UseDeviceCode) {
-                  Write-Host "`nThe Security & Compliance module does not support device code flow authentication." -ForegroundColor Red
-               } else {
-                  try {
-                     Connect-IPPSSession -BypassMailboxAnchoring -ConnectionUri $Environments[$ExchangeEnvironmentName].ConnectionUri -AzureADAuthorizationEndpointUri $Environments[$ExchangeEnvironmentName].AuthZEndpointUri
-                  } catch [Management.Automation.CommandNotFoundException] {
-                     if (-not $ExchangeModuleNotInstalledWarningShown) {
-                        Write-Host "`nThe Exchange Online module is not installed. Please install the module using the following command.`nFor more information see https://learn.microsoft.com/powershell/exchange/exchange-online-powershell-v2" -ForegroundColor Red
-                        Write-Host "`nInstall-Module ExchangeOnlineManagement -Scope CurrentUser`n" -ForegroundColor Yellow
-                     }
-                  }
-               }
-            }
+   if ($Service -contains 'SecurityCompliance' -or $Service -contains 'All') {
+      $Environments = @{
+         O365China        = @{
+            ConnectionUri    = 'https://ps.compliance.protection.partner.outlook.cn/powershell-liveid'
+            AuthZEndpointUri = 'https://login.chinacloudapi.cn/common'
+         }
+         O365GermanyCloud = @{
+            ConnectionUri    = 'https://ps.compliance.protection.outlook.com/powershell-liveid/'
+            AuthZEndpointUri = 'https://login.microsoftonline.com/common'
+         }
+         O365Default      = @{
+            ConnectionUri    = 'https://ps.compliance.protection.outlook.com/powershell-liveid/'
+            AuthZEndpointUri = 'https://login.microsoftonline.com/common'
+         }
+         O365USGovGCCHigh = @{
+            ConnectionUri    = 'https://ps.compliance.protection.office365.us/powershell-liveid/'
+            AuthZEndpointUri = 'https://login.microsoftonline.us/common'
+         }
+         O365USGovDoD     = @{
+            ConnectionUri    = 'https://l5.ps.compliance.protection.office365.us/powershell-liveid/'
+            AuthZEndpointUri = 'https://login.microsoftonline.us/common'
          }
       }
-
-      'Microsoft.Graph.Authentication' {
-         if ($Service -contains 'Graph' -or $Service -contains 'All') {
-            Write-Verbose 'Connecting to Microsoft Graph'
+      Write-Verbose 'Connecting to Microsoft Security & Compliance PowerShell'
+      if ($Service -notcontains 'ExchangeOnline' -and $Service -notcontains 'All') {
+         Write-Host "`nThe Security & Compliance module is dependent on the Exchange Online module. Please include ExchangeOnline when specifying the services.`nFor more information see https://learn.microsoft.com/en-us/powershell/exchange/connect-to-scc-powershell" -ForegroundColor Red
+      } else {
+         if ($UseDeviceCode) {
+            Write-Host "`nThe Security & Compliance module does not support device code flow authentication." -ForegroundColor Red
+         } else {
             try {
-               if ($TenantId) {
-                  Connect-MgGraph -Scopes (Get-MtGraphScope -SendMail:$SendMail -SendTeamsMessage:$SendTeamsMessage -Privileged:$Privileged) -NoWelcome -UseDeviceCode:$UseDeviceCode -Environment $Environment -TenantId $TenantId
-               } else {
-                  Connect-MgGraph -Scopes (Get-MtGraphScope -SendMail:$SendMail -SendTeamsMessage:$SendTeamsMessage -Privileged:$Privileged) -NoWelcome -UseDeviceCode:$UseDeviceCode -Environment $Environment
-                  $TenantId = (Get-MgContext).TenantId
-               }
+               Connect-IPPSSession -BypassMailboxAnchoring -ConnectionUri $Environments[$ExchangeEnvironmentName].ConnectionUri -AzureADAuthorizationEndpointUri $Environments[$ExchangeEnvironmentName].AuthZEndpointUri
             } catch [Management.Automation.CommandNotFoundException] {
-               Write-Host "`nThe Graph PowerShell module is not installed. Please install the module using the following command. For more information see https://learn.microsoft.com/powershell/microsoftgraph/installation" -ForegroundColor Red
-               Write-Host "`Install-Module Microsoft.Graph.Authentication -Scope CurrentUser`n" -ForegroundColor Yellow
+               if (-not $ExchangeModuleNotInstalledWarningShown) {
+                  Write-Host "`nThe Exchange Online module is not installed. Please install the module using the following command.`nFor more information see https://learn.microsoft.com/powershell/exchange/exchange-online-powershell-v2" -ForegroundColor Red
+                  Write-Host "`nInstall-Module ExchangeOnlineManagement -Scope CurrentUser`n" -ForegroundColor Yellow
+               }
             }
          }
       }
+   }
 
-      'MicrosoftTeams' {
-         if ($Service -contains 'Teams' -or $Service -contains 'All') {
-            Write-Verbose 'Connecting to Microsoft Teams'
-            try {
-               if ($UseDeviceCode) {
-                  Connect-MicrosoftTeams -UseDeviceAuthentication
-               } elseif ($TeamsEnvironmentName) {
-                  Connect-MicrosoftTeams -TeamsEnvironmentName $TeamsEnvironmentName | Out-Null
-               } else {
-                  Connect-MicrosoftTeams | Out-Null
-               }
-            } catch [Management.Automation.CommandNotFoundException] {
-               Write-Host "`nThe Teams PowerShell module is not installed. Please install the module using the following command. For more information see https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install" -ForegroundColor Red
-               Write-Host "`Install-Module MicrosoftTeams -Scope CurrentUser`n" -ForegroundColor Yellow
-            }
+   if ($Service -contains 'Teams' -or $Service -contains 'All') {
+      Write-Verbose 'Connecting to Microsoft Teams'
+      try {
+         if ($UseDeviceCode) {
+            Connect-MicrosoftTeams -UseDeviceAuthentication
+         } elseif ($TeamsEnvironmentName) {
+            Connect-MicrosoftTeams -TeamsEnvironmentName $TeamsEnvironmentName | Out-Null
+         } else {
+            Connect-MicrosoftTeams | Out-Null
          }
+      } catch [Management.Automation.CommandNotFoundException] {
+         Write-Host "`nThe Teams PowerShell module is not installed. Please install the module using the following command. For more information see https://learn.microsoft.com/en-us/microsoftteams/teams-powershell-install" -ForegroundColor Red
+         Write-Host "`Install-Module MicrosoftTeams -Scope CurrentUser`n" -ForegroundColor Yellow
       }
-   } # end switch OrderedImport
-
-} # end function Connect-Maester
+   }
+}
