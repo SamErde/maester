@@ -45,7 +45,7 @@ To be able to declare Microsoft Graph resources in a Bicep file, you need to ena
     },
     // specify an alias for the version of the v1.0 dynamic types package you want to use
     "extensions": {
-      "microsoftGraphV1_0": "br:mcr.microsoft.com/bicep/extensions/microsoftgraph/v1.0:0.1.8-preview"
+      "microsoftGraphV1": "br:mcr.microsoft.com/bicep/extensions/microsoftgraph/v1.0:1.0.0"
     }
 }
 ```
@@ -69,6 +69,8 @@ param __maesterAppRoles__ = [
   'Reports.Read.All'
   'RoleEligibilitySchedule.Read.Directory'
   'RoleManagement.Read.All'
+  'SecurityIdentitiesSensors.Read.All'
+  'SecurityIdentitiesHealth.Read.All'
   'SharePointTenantSettings.Read.All'
   'UserAuthenticationMethod.Read.All'
   'Mail.Send'
@@ -108,7 +110,7 @@ metadata version = '1.0.0'
 
 targetScope = 'subscription'
 
-extension microsoftGraphV1_0
+extension microsoftGraphV1
 
 @description('Defing our input parameters')
 param __env__ string
@@ -254,7 +256,7 @@ The ```aa-advanced.bicep``` module file automates the configuration of the Maest
 
 
 ```bicep
-extension microsoftGraphV1_0
+extension microsoftGraphV1
 param __location__ string
 param __maesterAppRoles__ array
 param __maesterAutomationAccountModules__ array
@@ -408,7 +410,7 @@ New-AzSubscriptionDeploymentStack -Name Maester -Location WestEurope -DenySettin
 
 ## FAQ / Troubleshooting
 
-- Ensure you have the latest version of Azure Bicep, as the ```microsoftGraphV1_0``` module depends on the newer versions
+- Ensure you have the latest version of Azure Bicep, as the ```microsoftGraphV1``` module depends on the newer versions
 
 ## Contributors
 
