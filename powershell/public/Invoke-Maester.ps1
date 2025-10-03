@@ -319,7 +319,13 @@ function Invoke-Maester {
     if ($SkipGraphConnect) {
         Write-Host "🔥 Skipping graph connection check" -ForegroundColor Yellow
     } else {
-        if (!(Test-MtContext -SendMail:$isMail -SendTeamsMessage:$isTeamsChannelMessage)) { return }
+        if (!(Test-MtContext -SendMail:$isMail -SendTeamsMessage:$isTeamsChannelMessage)) {
+            if ($NonInteractive.IsPresent -or $NoLogo.IsPresent) {
+                Write-Host " ⚠️ Non-interactive mode: running with missing permissions" -ForegroundColor Yellow
+            } else {
+                return
+            }
+         }
     }
 
     # Initialize MtSession after Graph connected.
@@ -329,7 +335,7 @@ function Invoke-Maester {
         # Check if TeamChannelWebhookUri is a valid URL.
         $urlPattern = '^(https)://[^\s/$.?#].[^\s]*$'
         if (-not ($TeamChannelWebhookUri -match $urlPattern)) {
-            Write-Output "Invalid Webhook URL: $TeamChannelWebhookUri"
+            Write-Output "⚠️ Invalid Webhook URL: $TeamChannelWebhookUri"
             return
         }
     }
@@ -354,12 +360,14 @@ function Invoke-Maester {
     # Exclude LongRunning tests unless: $IncludeLongRunning is present, or LongRunning is in $Tag, or CAWhatIf is in $Tag.
     if ( (-not $IncludeLongRunning.IsPresent) -and "LongRunning" -notin $Tag -and "CAWhatIf" -notin $Tag ) {
         $ExcludeTag += "LongRunning"
+        Write-Verbose "Excluding LongRunning tests. Use -IncludeLongRunning to include them."
     }
 
     # If $Tag is not set and IncludePreview is not passed, run all tests except the ones with the "Preview" tag.
     if (-not $Tag) {
         if (-not $IncludePreview.IsPresent) {
             $ExcludeTag += "Preview"
+            Write-Verbose "Excluding Preview tests. Use -IncludePreview to include them."
         }
     }
 
@@ -480,10 +488,12 @@ function Invoke-Maester {
 
         if ($Verbosity -eq 'None') {
             # Show final summary.
-            Write-Host "`nTests Passed ✅: $($pesterResults.PassedCount), " -NoNewline -ForegroundColor Green
-            Write-Host "Failed ❌: $($pesterResults.FailedCount), " -NoNewline -ForegroundColor Red
-            Write-Host "Skipped ⚫: $($pesterResults.SkippedCount) " -NoNewline -ForegroundColor DarkGray
-            Write-Host "Not Run ⚫: $($pesterResults.NotRunCount)`n" -ForegroundColor DarkGray
+            Write-Host "`nTests Passed ✅: $($maesterResults.PassedCount), " -NoNewline -ForegroundColor Green
+            Write-Host "Failed ❌: $($maesterResults.FailedCount), " -NoNewline -ForegroundColor Red
+            Write-Host "Skipped ⚫: $($maesterResults.SkippedCount), " -NoNewline -ForegroundColor DarkGray
+            Write-Host "Error ⚠️: $($maesterResults.ErrorCount), " -NoNewline -ForegroundColor DarkGray
+            Write-Host "Not Run ⚫: $($maesterResults.NotRunCount), " -NoNewline -ForegroundColor DarkGray
+            Write-Host "Total ⭐: $($maesterResults.TotalCount)`n" 
         }
 
         if (-not $SkipVersionCheck -and 'Next' -ne $version) {
