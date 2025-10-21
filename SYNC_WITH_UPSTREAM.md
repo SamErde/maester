@@ -30,7 +30,25 @@ This PR brings your fork up to date with the upstream repository (maester365/mae
 
 **What it does**: Makes your fork's main branch identical to upstream, including commit history.
 
-**How to do it**:
+### Method A: Using the Automated Script (Easiest)
+
+```bash
+# Clone your repository
+git clone https://github.com/SamErde/maester.git
+cd maester
+
+# Run the sync script
+./sync-with-upstream.sh
+```
+
+The script will:
+- Configure the upstream remote
+- Fetch latest changes
+- Reset your main branch to match upstream
+- Prompt before force pushing
+
+### Method B: Manual Commands
+
 ```bash
 # Clone your repository
 git clone https://github.com/SamErde/maester.git
