@@ -1,74 +1,74 @@
 ﻿function Connect-Maester {
-   <#
-.SYNOPSIS
-   Helper method to connect to Microsoft Graph using Connect-MgGraph with the required permission scopes as well as other services such as Azure and Exchange Online.
+<#
+   .SYNOPSIS
+      Helper method to connect to Microsoft Graph using Connect-MgGraph with the required permission scopes as well as other services such as Azure and Exchange Online.
 
-.DESCRIPTION
-   Use this cmdlet to connect to Microsoft Graph and the Microsoft 365 services that Maester can assess. It attempts to connect to all services by default: Microsoft Graph, Azure, Exchange Online, and Microsoft Teams.
+   .DESCRIPTION
+      Use this cmdlet to connect to Microsoft Graph and the Microsoft 365 services that Maester can assess. It attempts to connect to all services by default: Microsoft Graph, Azure, Exchange Online, and Microsoft Teams.
 
-   This command is completely optional if you are already connected to Microsoft Graph and other services using Connect-MgGraph with the required scopes.
+      This command is completely optional if you are already connected to Microsoft Graph and other services using Connect-MgGraph with the required scopes.
 
-   ```
-   Connect-MgGraph -Scopes (Get-MtGraphScope)
-   ```
+      ```
+      Connect-MgGraph -Scopes (Get-MtGraphScope)
+      ```
 
-.EXAMPLE
-   Connect-Maester
+   .EXAMPLE
+      Connect-Maester
 
-   Connects to all Microsoft services that Maester is able to assess: Microsoft Graph, Azure, Exchange Online, Exchange Online Security & Compliance, and Microsoft Teams.
+      Connects to all Microsoft services that Maester is able to assess: Microsoft Graph, Azure, Exchange Online, Exchange Online Security & Compliance, and Microsoft Teams.
 
-.EXAMPLE
-   Connect-Maester -Service Graph,Teams
+   .EXAMPLE
+      Connect-Maester -Service Graph,Teams
 
-   Connects to Microsoft Graph and Microsoft Teams.
+      Connects to Microsoft Graph and Microsoft Teams.
 
-.EXAMPLE
-   Connect-Maester -Service Azure,Graph
+   .EXAMPLE
+      Connect-Maester -Service Azure,Graph
 
-   Connects to Microsoft Graph and Azure.
+      Connects to Microsoft Graph and Azure.
 
-.EXAMPLE
-   Connect-Maester -UseDeviceCode
+   .EXAMPLE
+      Connect-Maester -UseDeviceCode
 
-   Connects to Microsoft Graph and Azure using the device code flow. This will open a browser window to prompt for authentication.
+      Connects to Microsoft Graph and Azure using the device code flow. This will open a browser window to prompt for authentication.
 
-.EXAMPLE
-   Connect-Maester -SendMail
+   .EXAMPLE
+      Connect-Maester -SendMail
 
-   Connects to Microsoft Graph with the Mail.Send scope.
+      Connects to Microsoft Graph with the Mail.Send scope.
 
-.EXAMPLE
-   Connect-Maester -SendTeamsMessage
+   .EXAMPLE
+      Connect-Maester -SendTeamsMessage
 
-   Connects to Microsoft Graph with the ChannelMessage.Send scope.
+      Connects to Microsoft Graph with the ChannelMessage.Send scope.
 
-.EXAMPLE
-   Connect-Maester -Privileged
+   .EXAMPLE
+      Connect-Maester -Privileged
 
-   Connects to Microsoft Graph with additional privileged scopes such as **RoleEligibilitySchedule.ReadWrite.Directory** that are required for querying global admin roles in Privileged Identity Management.
+      Connects to Microsoft Graph with additional privileged scopes such as **RoleEligibilitySchedule.ReadWrite.Directory** that are required for querying global admin roles in Privileged Identity Management.
 
-.EXAMPLE
-   Connect-Maester -Environment USGov -AzureEnvironment AzureUSGovernment -ExchangeEnvironmentName O365USGovGCCHigh
+   .EXAMPLE
+      Connect-Maester -Environment USGov -AzureEnvironment AzureUSGovernment -ExchangeEnvironmentName O365USGovGCCHigh
 
-   Connects to US Government environments for Microsoft Graph, Azure, and Exchange Online.
+      Connects to US Government environments for Microsoft Graph, Azure, and Exchange Online.
 
-.EXAMPLE
-   Connect-Maester -Environment USGovDoD -AzureEnvironment AzureUSGovernment -ExchangeEnvironmentName O365USGovDoD
+   .EXAMPLE
+      Connect-Maester -Environment USGovDoD -AzureEnvironment AzureUSGovernment -ExchangeEnvironmentName O365USGovDoD
 
-   Connects to US Department of Defense (DoD) environments for Microsoft Graph, Azure, and Exchange Online.
+      Connects to US Department of Defense (DoD) environments for Microsoft Graph, Azure, and Exchange Online.
 
-.EXAMPLE
-   Connect-Maester -Environment China -AzureEnvironment AzureChinaCloud -ExchangeEnvironmentName O365China
+   .EXAMPLE
+      Connect-Maester -Environment China -AzureEnvironment AzureChinaCloud -ExchangeEnvironmentName O365China
 
-   Connects to China environments for Microsoft Graph, Azure, and Exchange Online.
+      Connects to China environments for Microsoft Graph, Azure, and Exchange Online.
 
-.EXAMPLE
-   Connect-Maester -GraphClientId 'f45ec3ad-32f0-4c06-8b69-47682afe0216'
+   .EXAMPLE
+      Connect-Maester -GraphClientId 'f45ec3ad-32f0-4c06-8b69-47682afe0216'
 
-   Connects using a custom application with client ID f45ec3ad-32f0-4c06-8b69-47682afe0216
+      Connects using a custom application with client ID f45ec3ad-32f0-4c06-8b69-47682afe0216
 
-.LINK
-   https://maester.dev/docs/commands/Connect-Maester
+   .LINK
+      https://maester.dev/docs/commands/Connect-Maester
 #>
    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSAvoidUsingWriteHost', '', Justification = 'Colors are beautiful')]
    [Alias('Connect-MtGraph', 'Connect-MtMaester')]
@@ -111,7 +111,12 @@
       [string]$TenantId,
 
       # The Client ID of the app to connect to for Graph. If not specified, the default Graph PowerShell CLI enterprise app will be used. Reference on how to create an enterprise app: https://learn.microsoft.com/en-us/powershell/microsoftgraph/authentication-commands?view=graph-powershell-1.0#use-delegated-access-with-a-custom-application-for-microsoft-graph-powershell
-      [string]$GraphClientId
+      [string]$GraphClientId,
+
+      # The user principal name (UPN) to connect to for Graph. If not specified, the currently signed in user's UPN will be used.
+      [Parameter(Mandatory = $false)]
+      [Alias('UPN')]
+      [string]$UserPrincipalName
    )
 
    $__MtSession.Connections = $Service
@@ -125,9 +130,9 @@
             try {
                $azWarning = @()
                if ($TenantId) {
-                  Connect-AzAccount -SkipContextPopulation -UseDeviceAuthentication:$UseDeviceCode -Environment $AzureEnvironment -Tenant $TenantId -WarningAction SilentlyContinue -WarningVariable azWarning
+                  Connect-AzAccount -AccountId $UserPrincipalName -SkipContextPopulation -UseDeviceAuthentication:$UseDeviceCode -Environment $AzureEnvironment -Tenant $TenantId -WarningAction SilentlyContinue -WarningVariable azWarning
                } else {
-                  Connect-AzAccount -SkipContextPopulation -UseDeviceAuthentication:$UseDeviceCode -Environment $AzureEnvironment -WarningAction SilentlyContinue -WarningVariable azWarning
+                  Connect-AzAccount -AccountId $UserPrincipalName -SkipContextPopulation -UseDeviceAuthentication:$UseDeviceCode -Environment $AzureEnvironment -WarningAction SilentlyContinue -WarningVariable azWarning
                }
                if ($azWarning.Count -gt 0) {
                   foreach ($warning in $azWarning) {
@@ -196,7 +201,7 @@
                   Write-Host "`nThe Security & Compliance module does not support device code flow authentication." -ForegroundColor Red
                } else {
                   try {
-                     Connect-IPPSSession -BypassMailboxAnchoring -ConnectionUri $Environments[$ExchangeEnvironmentName].ConnectionUri -AzureADAuthorizationEndpointUri $Environments[$ExchangeEnvironmentName].AuthZEndpointUri -ShowBanner:$false
+                     Connect-IPPSSession -UserPrincipalName $UserPrincipalName -BypassMailboxAnchoring -ConnectionUri $Environments[$ExchangeEnvironmentName].ConnectionUri -AzureADAuthorizationEndpointUri $Environments[$ExchangeEnvironmentName].AuthZEndpointUri -ShowBanner:$false
                   } catch [Management.Automation.CommandNotFoundException] {
                      if (-not $ExchangeModuleNotInstalledWarningShown) {
                         Write-Host "`nThe Exchange Online module is not installed. Please install the module using the following command.`nFor more information see https://learn.microsoft.com/powershell/exchange/exchange-online-powershell-v2" -ForegroundColor Red
@@ -279,7 +284,7 @@
                if ($UseDeviceCode) {
                   Connect-MicrosoftTeams -UseDeviceAuthentication
                } elseif ($TeamsEnvironmentName) {
-                  Connect-MicrosoftTeams -TeamsEnvironmentName $TeamsEnvironmentName > $null
+                  Connect-MicrosoftTeams -TeamsEnvironmentName $TeamsEnvironmentName -AccountId $UserPrincipalName -TenantId $TenantId > $null
                } else {
                   Connect-MicrosoftTeams > $null
                }
