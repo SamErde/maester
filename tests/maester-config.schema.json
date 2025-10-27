@@ -2,34 +2,73 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://maester.dev/schemas/maester-config.json",
   "title": "Maester Configuration Schema",
-  "description": "Schema for Maester configuration files",
+  "description": "Schema for Maester configuration files.",
   "type": "object",
+
   "properties": {
+
     "version": {
       "type": "string",
-      "description": "Semantic version of the Maester test configuration schema.",
+      "description": "Semantic version of the Maester configuration schema.",
       "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*)?(?:\\+[a-zA-Z0-9]+(?:\\.[a-zA-Z0-9]+)*)?$"
     },
 
-    "AccountSettings": {
-      "type": "array",
-      "description": "Settings for accounts evaluated during the tests. Managed service identities could also be added here.",
-      "items": {
-        "type": "object",
-        "properties": {
-          "EmergencyAccess": {
-            "type": "array",
-            "description": "Emergency access account user principal names.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "PrivilegedAdmin": {
-            "type": "array",
-            "description": "Privileged admin account user principal names.",
-            "items": {
-              "type": "string"
-            }
+    "GlobalSettings": {
+      "type": "object",
+      "description": "Global settings for Maester.",
+      "properties": {
+        "EmergencyAccessAccounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "Id": {
+                "type": "string",
+                "description": "The unique identifier (GUID) of the emergency access account.",
+                "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+              },
+              "UserPrincipalName": {
+                "type": "string",
+                "description": "The user principal name of the emergency access account.",
+                "pattern": "^(?=.{1,113}$)[-A-Za-z0-9'!#^~_](?:[-A-Za-z0-9'!#^~._]{0,62}[-A-Za-z0-9'!#^~_])?@(?=.{1,48}$)(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)(?:\\.(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?))+$"
+              },
+              "Type": {
+                "type": "string",
+                "enum": [
+                  "User",
+                  "Group"
+                ],
+                "default": "User",
+                "description": "The type of the emergency access account. Defaults to 'User' if not specified."
+              }
+            },
+            "anyOf": [
+              {
+                "required": [
+                  "Id"
+                ]
+              },
+              {
+                "required": [
+                  "UserPrincipalName"
+                ]
+              }
+            ],
+            "not": {
+              "allOf": [
+                {
+                  "required": [
+                    "Id"
+                  ]
+                },
+                {
+                  "required": [
+                    "UserPrincipalName"
+                  ]
+                }
+              ]
+            },
+            "additionalProperties": false
           }
         }
       }
@@ -37,40 +76,73 @@
 
     "TestSettings": {
       "type": "array",
-      "description": "Configuration Settings for Maester Tests",
+      "description": "Configuration Settings for Maester Tests.",
       "items": {
         "type": "object",
         "required": [
           "Id",
           "Title",
-          "Severity"
+          "Severity",
+          "License"
         ],
         "additionalProperties": false,
         "properties": {
           "Id": {
             "type": "string",
-            "description": "Unique identifier for the test",
+            "description": "Unique identifier for the test.",
             "pattern": "^(CIS\\.M365|CISA\\.MS\\.(AAD|EXO|EID|SHAREPOINT)|MT|ORCA)\\.[0-9]+(\\.[0-9]+)*$|^EIDSCA\\.[A-Z]{2}[0-9]{2}$"
           },
           "Severity": {
             "type": "string",
-            "description": "Severity level of the test",
-            "enum": ["High", "Medium", "Low", "Info"]
+            "description": "Severity level of the test.",
+            "enum": [
+              "High",
+              "Medium",
+              "Low",
+              "Info"
+            ]
           },
           "Title": {
             "type": "string",
-            "description": "Human-readable title of the test"
+            "description": "Human-readable title of the test."
           },
           "License": {
             "type": "array",
-            "description": "License required for the feature being tested.",
+            "description": "License[s] required for the feature being tested.",
             "items": {
               "type": "string",
-              "enum": ["A3", "A5", "E3", "E5", "P1", "P2", "F1", "F3", "F5", "Business Premium", "BP", "MDOP1", "MDOP2", "MDEP1", "MDEP2"]
+              "enum": [
+                "A3",
+                "A5",
+                "E3",
+                "E5",
+                "P1",
+                "P2",
+                "F1",
+                "F3",
+                "F5",
+                "Business Premium",
+                "BP",
+                "MDOP1",
+                "MDOP2",
+                "MDEP1",
+                "MDEP2",
+                "EMS",
+                "Intune",
+                "G3",
+                "G5"
+              ]
             }
           }
         }
       }
     }
-  }
+  },
+
+  "required": [
+    "version",
+    "GlobalSettings",
+    "TestSettings"
+  ],
+  "additionalProperties": false
 }
