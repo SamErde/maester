@@ -23,11 +23,16 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
 
       - name: Download updated report template
         if: needs.build-report.outputs.report-updated == 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: updated-report-template
           path: powershell/assets/
@@ -43,7 +48,7 @@ jobs:
         run: ./.github/workflows/minor-version-update.ps1
 
       - name: Azure CLI login
-        uses: azure/login@v1
+        uses: azure/login@cb79c773a3cfa27f31f25eb3f677781210c9ce3d # v1.6.1
         with:
           tenant-id: ${{ vars.TENTANT_ID }}
           client-id: ${{ vars.CLIENT_ID }}
@@ -68,7 +73,7 @@ jobs:
           Compress-Archive -Path ${{ github.workspace }}/maester/* -DestinationPath ${{ github.workspace }}/maester.zip
 
       - name: Create release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@b7eabc95ff50cbeeedec83973935c8f306dfcd0b # v1.20.0
         with:
           artifacts: "maester.zip"
           replacesArtifacts: true
