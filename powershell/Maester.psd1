@@ -161,14 +161,19 @@ FunctionsToExport = 'Add-MtTestResultDetail',
     'Test-ORCA244', 'Update-MaesterTests', 'Test-MtAppRegistrationOwnersWithoutMFA',
     'Test-MtManagementGroupWriteRequirement', 'Test-MtDeviceRegistrationMfaConflict', 'Test-MtVaultSoftDelete',
     'Test-MtTenantCreationRestricted', 'Test-MtEntraDeviceJoinRestricted', 'Test-MtSecurityGroupCreationRestricted',
-    'Test-MtCaApprovedClientApp', 'Test-MtCaAzureDevOps', 'Test-MtEntraIDConnectSyncSoftHardMatching', 'Test-MtEntraIDConnectSyncSsso',
+    'Test-MtCaApprovedClientApp', 'Test-MtCaAzureDevOps', 'Test-MtEntraIDConnectSyncSoftHardMatching', 'Test-MtEntraIDConnectSsso',
     'Test-MtExoMoeraMailActivity','Test-MtExoDelicensingResiliency',
     'Test-MtLimitOnMicrosoftDomainUsage',
     'Test-MtXspmAppRegWithPrivilegedApiAndOwners',
     'Test-MtXspmAppRegWithPrivilegedRolesAndOwners',
     'Test-MtXspmAppRegWithPrivilegedUnusedPermissions',
     'Test-MtXspmExposedCredentialsForPrivilegedUsers',
-    'Test-MtXspmHybridUsersWithAssignedEntraIdRoles'
+    'Test-MtXspmHybridUsersWithAssignedEntraIdRoles',
+    'Test-MtXspmPendingApprovalCriticalAssetManagement',
+    'Test-MtXspmCriticalCredsOnDevicesWithNonCriticalAccounts',
+    'Test-MtXspmPublicRemotelyExploitableHighExposureDevices',
+    'Test-MtXspmCriticalCredentialsOnNonTpmProtectedDevices',
+    'Test-MtXspmCriticalCredentialsOnNonCredGuardProtectedDevices'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
