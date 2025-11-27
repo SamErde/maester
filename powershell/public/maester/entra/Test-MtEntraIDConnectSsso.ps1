@@ -7,14 +7,14 @@
     However, if not managed properly, it can introduce security risks, especially if devices are compromised or if there are misconfigurations.
 
 .EXAMPLE
-    Test-MtEntraIDConnectSyncSsso
+    Test-MtEntraIDConnectSsso
 
     Returns true if Microsoft Entra seamless single sign-on is disabled
 
 .LINK
-    https://maester.dev/docs/commands/Test-MtEntraIDConnectSyncSsso
+    https://maester.dev/docs/commands/Test-MtEntraIDConnectSsso
 #>
-function Test-MtEntraIDConnectSyncSsso {
+function Test-MtEntraIDConnectSsso {
     [CmdletBinding()]
     [OutputType([bool])]
     param()
@@ -46,7 +46,6 @@ function Test-MtEntraIDConnectSyncSsso {
             ErrorAction = "SilentlyContinue"
             Body        = (@{"Query" = "IdentityLogonEvents | getschema" } | ConvertTo-Json)
             OutputType  = "PSObject"
-            Verbose     = $true
         }
         $IdentityLogonEventsAvailable = ((Invoke-MtGraphRequest @params).results.ColumnName -contains "LogonType")
         # Check for availability of DeviceInfo table
@@ -57,7 +56,6 @@ function Test-MtEntraIDConnectSyncSsso {
             ErrorAction = "SilentlyContinue"
             Body        = (@{"Query" = "DeviceInfo | getschema" } | ConvertTo-Json)
             OutputType  = "PSObject"
-            Verbose     = $true
         }
         $DeviceInfoAvailable = ((Invoke-MtGraphRequest @params).results.ColumnName -contains "DeviceId")
         $UnifiedMdiInfoAvailable = $IdentityLogonEventsAvailable -and $DeviceInfoAvailable
