@@ -3,9 +3,10 @@
 
 export const testResults = {
   "Result": "Failed",
-  "FailedCount": 70,
+  "FailedCount": 67,
   "PassedCount": 74,
   "ErrorCount": 2,
+  "InvestigateCount": 3,
   "SkippedCount": 150,
   "NotRunCount": 19,
   "TotalCount": 315,
@@ -17,7 +18,7 @@ export const testResults = {
   "TenantId": "0817c655-a853-4d8f-9723-3a333b5b9235",
   "TenantName": "Pora Inc.",
   "TenantLogos": {
-    "Banner": null
+    "Banner": "data:image/*;base64,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"
   },
   "Account": "merill@elapora.com",
   "CurrentVersion": "Next",
@@ -315,6 +316,93 @@ export const testResults = {
     },
     {
       "Index": 3,
+      "Id": "MT.INV.001",
+      "Title": "Unusual sign-in activity detected for privileged accounts",
+      "Name": "MT.INV.001: Unusual sign-in activity detected for privileged accounts",
+      "HelpUrl": "https://maester.dev/docs/tests/MT.INV.001",
+      "Severity": "High",
+      "Tag": [
+        "MT.INV.001",
+        "Security",
+        "Identity",
+        "Investigate"
+      ],
+      "Result": "Investigate",
+      "ScriptBlock": "\n        $result = Test-MtPrivilegedSignInActivity\n\n        if ($null -ne $result) {\n            $result | Should -Be $true -Because \"no unusual sign-in patterns should exist\"\n        }\n    ",
+      "ScriptBlockFile": "/Users/merill/GitHub/maester/tests/security/Test-MtPrivilegedSignInActivity.Tests.ps1",
+      "ErrorRecord": [],
+      "Block": "Identity Protection",
+      "Duration": "00:00:02",
+      "ResultDetail": {
+        "TestTitle": "MT.INV.001: Unusual sign-in activity detected for privileged accounts",
+        "SkippedReason": "This test requires further investigation. 🔍",
+        "TestDescription": "This test checks for unusual sign-in patterns for accounts with privileged roles. Anomalies may indicate a potential compromise.\n\n#### Investigation steps:\n\n1. Review the sign-in logs for the flagged accounts\n2. Check if the sign-ins are from expected locations\n3. Verify if the sign-in times match the user's normal working hours\n4. Contact the user to confirm the activity\n\n#### Related links\n\n* [Microsoft Entra sign-in logs](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/SignIns)\n* [Investigate risk in Identity Protection](https://learn.microsoft.com/entra/id-protection/howto-identity-protection-investigate-risk)\n\n",
+        "TestResult": "Investigate. The following privileged accounts have unusual sign-in activity that requires review:\n\n| Display Name | Role | Location | Risk Level |\n| --- | --- | --- | --- |\n| John Admin | Global Administrator | Unknown IP | Medium |\n| Jane SecOps | Security Administrator | New device | Low |\n",
+        "Severity": "High",
+        "Service": "Identity",
+        "TestSkipped": "Investigate"
+      }
+    },
+    {
+      "Index": 4,
+      "Id": "MT.INV.002",
+      "Title": "Service principal credentials nearing expiration",
+      "Name": "MT.INV.002: Service principal credentials nearing expiration",
+      "HelpUrl": "https://maester.dev/docs/tests/MT.INV.002",
+      "Severity": "Medium",
+      "Tag": [
+        "MT.INV.002",
+        "Security",
+        "Applications",
+        "Investigate"
+      ],
+      "Result": "Investigate",
+      "ScriptBlock": "\n        $result = Test-MtAppCredentialExpiry\n\n        if ($null -ne $result) {\n            $result | Should -Be $true -Because \"no credentials should be expiring soon\"\n        }\n    ",
+      "ScriptBlockFile": "/Users/merill/GitHub/maester/tests/security/Test-MtAppCredentialExpiry.Tests.ps1",
+      "ErrorRecord": [],
+      "Block": "Applications",
+      "Duration": "00:00:01",
+      "ResultDetail": {
+        "TestTitle": "MT.INV.002: Service principal credentials nearing expiration",
+        "SkippedReason": "This test requires further investigation. 🔍",
+        "TestDescription": "This test identifies service principals and applications with credentials that will expire within the next 30 days. Expired credentials can cause service outages.\n\n#### Investigation steps:\n\n1. Identify the business owner of the application\n2. Schedule credential rotation before expiration\n3. Update any systems using these credentials\n\n#### Related links\n\n* [Microsoft Entra App Registrations](https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps)\n\n",
+        "TestResult": "Investigate. The following applications have credentials expiring soon:\n\n| App Name | Credential Type | Expires In |\n| --- | --- | --- |\n| Backup Service | Client Secret | 15 days |\n| API Gateway | Certificate | 22 days |\n| HR Integration | Client Secret | 7 days |\n",
+        "Severity": "Medium",
+        "Service": "Applications",
+        "TestSkipped": "Investigate"
+      }
+    },
+    {
+      "Index": 5,
+      "Id": "MT.INV.003",
+      "Title": "Inactive privileged accounts detected",
+      "Name": "MT.INV.003: Inactive privileged accounts detected",
+      "HelpUrl": "https://maester.dev/docs/tests/MT.INV.003",
+      "Severity": "Medium",
+      "Tag": [
+        "MT.INV.003",
+        "Security",
+        "Identity",
+        "Investigate"
+      ],
+      "Result": "Investigate",
+      "ScriptBlock": "\n        $result = Test-MtInactivePrivilegedAccounts\n\n        if ($null -ne $result) {\n            $result | Should -Be $true -Because \"all privileged accounts should be active\"\n        }\n    ",
+      "ScriptBlockFile": "/Users/merill/GitHub/maester/tests/security/Test-MtInactivePrivilegedAccounts.Tests.ps1",
+      "ErrorRecord": [],
+      "Block": "Identity Protection",
+      "Duration": "00:00:03",
+      "ResultDetail": {
+        "TestTitle": "MT.INV.003: Inactive privileged accounts detected",
+        "SkippedReason": "Accounts require review to determine if they should be disabled or retained.",
+        "TestDescription": "This test identifies privileged accounts that have not signed in for more than 90 days. Inactive privileged accounts pose a security risk.\n\n#### Investigation steps:\n\n1. Contact the account owner to verify if the account is still needed\n2. If not needed, disable or delete the account\n3. If needed, investigate why there is no recent activity\n\n#### Related links\n\n* [Microsoft Entra Privileged Identity Management](https://portal.azure.com/#view/Microsoft_Azure_PIMCommon/CommonMenuBlade/~/quickStart)\n\n",
+        "TestResult": "Investigate. The following privileged accounts have been inactive for over 90 days:\n\n| Display Name | Role | Last Sign-in | Days Inactive |\n| --- | --- | --- | --- |\n| Legacy Admin | Global Administrator | 2024-09-15 | 95 |\n| Test Account | User Administrator | 2024-08-01 | 140 |\n",
+        "Severity": "Medium",
+        "Service": "Identity",
+        "TestSkipped": "Investigate"
+      }
+    },
+    {
+      "Index": 6,
       "Id": "CIS.M365.1.2.1",
       "Title": "Ensure that only organizationally managed/approved public groups exist",
       "Name": "CIS.M365.1.2.1: Ensure that only organizationally managed/approved public groups exist",
@@ -20635,11 +20723,44 @@ export const testResults = {
   ],
   "Blocks": [
     {
+      "Name": "Identity Protection",
+      "Result": "Investigate",
+      "FailedCount": 0,
+      "PassedCount": 0,
+      "ErrorCount": 0,
+      "InvestigateCount": 2,
+      "SkippedCount": 0,
+      "NotRunCount": 0,
+      "TotalCount": 2,
+      "Tag": [
+        "Security",
+        "Identity",
+        "Investigate"
+      ]
+    },
+    {
+      "Name": "Applications",
+      "Result": "Investigate",
+      "FailedCount": 0,
+      "PassedCount": 0,
+      "ErrorCount": 0,
+      "InvestigateCount": 1,
+      "SkippedCount": 0,
+      "NotRunCount": 0,
+      "TotalCount": 1,
+      "Tag": [
+        "Security",
+        "Applications",
+        "Investigate"
+      ]
+    },
+    {
       "Name": "Exposure Management",
       "Result": "Passed",
       "FailedCount": 0,
       "PassedCount": 1,
       "ErrorCount": 0,
+      "InvestigateCount": 0,
       "SkippedCount": 0,
       "NotRunCount": 9,
       "TotalCount": 10,
@@ -20656,6 +20777,7 @@ export const testResults = {
       "FailedCount": 11,
       "PassedCount": 27,
       "ErrorCount": 0,
+      "InvestigateCount": 0,
       "SkippedCount": 6,
       "NotRunCount": 0,
       "TotalCount": 44,
@@ -20671,6 +20793,7 @@ export const testResults = {
       "FailedCount": 21,
       "PassedCount": 10,
       "ErrorCount": 0,
+      "InvestigateCount": 0,
       "SkippedCount": 42,
       "NotRunCount": 0,
       "TotalCount": 73,
@@ -20688,6 +20811,7 @@ export const testResults = {
       "FailedCount": 0,
       "PassedCount": 1,
       "ErrorCount": 0,
+      "InvestigateCount": 0,
       "SkippedCount": 0,
       "NotRunCount": 0,
       "TotalCount": 1,
@@ -20703,6 +20827,7 @@ export const testResults = {
       "FailedCount": 3,
       "PassedCount": 1,
       "ErrorCount": 0,
+      "InvestigateCount": 0,
       "SkippedCount": 21,
       "NotRunCount": 0,
       "TotalCount": 25,
@@ -20722,6 +20847,7 @@ export const testResults = {
       "FailedCount": 0,
       "PassedCount": 1,
       "ErrorCount": 0,
+      "InvestigateCount": 0,
       "SkippedCount": 8,
       "NotRunCount": 0,
       "TotalCount": 9,
@@ -20737,6 +20863,7 @@ export const testResults = {
       "PassedCount": 1,
       "ErrorCount": 0,
       "SkippedCount": 0,
+      "InvestigateCount": 0,
       "NotRunCount": 0,
       "TotalCount": 3,
       "Tag": [
@@ -20751,6 +20878,7 @@ export const testResults = {
       "PassedCount": 0,
       "ErrorCount": 0,
       "SkippedCount": 5,
+      "InvestigateCount": 0,
       "NotRunCount": 0,
       "TotalCount": 6,
       "Tag": [
@@ -20766,6 +20894,7 @@ export const testResults = {
       "PassedCount": 0,
       "ErrorCount": 0,
       "SkippedCount": 0,
+      "InvestigateCount": 0,
       "NotRunCount": 0,
       "TotalCount": 2,
       "Tag": [
@@ -20780,6 +20909,7 @@ export const testResults = {
       "PassedCount": 31,
       "ErrorCount": 2,
       "SkippedCount": 1,
+      "InvestigateCount": 0,
       "NotRunCount": 10,
       "TotalCount": 74,
       "Tag": [
@@ -20795,6 +20925,7 @@ export const testResults = {
       "PassedCount": 1,
       "ErrorCount": 0,
       "SkippedCount": 0,
+      "InvestigateCount": 0,
       "NotRunCount": 0,
       "TotalCount": 1,
       "Tag": [
@@ -20812,6 +20943,7 @@ export const testResults = {
       "PassedCount": 0,
       "ErrorCount": 0,
       "SkippedCount": 67,
+      "InvestigateCount": 0,
       "NotRunCount": 0,
       "TotalCount": 67,
       "Tag": [
